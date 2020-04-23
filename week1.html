@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+    <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Week 1 | WDD330 | Kimi Weldon</title>
+            <meta name="description" content="Assignments, samples and course projects for Kimi Weldon, for WDD330 at BYU-Idaho.">
+            <meta name="author" content="Kimi Weldon">
+            <link rel="stylesheet" href="main-style.css">
+    </head>
+    
+    <body>
+        <div class="page_wrap">
+            <header>
+                <h1>Week 1</h1>
+                <p>Notes and examples for Week 1. <br />
+                    <a href="index.html">Back to Portfolio</a></p>
+            </header>
+            <main>
+                <h2>Notes/Questions</h2>
+                <section>
+                    <h3>Doing Stuff With Web Things</h3>
+                    <ul> 
+                        <li>                       
+                            <strong>Q: Is localStorage anything like cookies?</strong> Google says it's entirely based on the user's computer, not stored server-side, so it's different, but I'm having trouble wrapping my head around how exactly this data is saved and where.
+                        </li>
+                        <li>
+                            <strong>Q: Are semicolons not required at the end of the line?</strong> I was taught they were essential unless it was a single line function. The code in this book doesn't have semicolons in it. A quick Google search infoms me that they aren't strictly required; they are added automatically by the browser where needed. However, they are still "best practice," so add them I shall.
+                        </li>
+                        <li>
+                            Key-value pairs: "key" refers to the label or description, and "value" refers to the stuff it's holding. Key: "lamp." Value: "a bright thing that turns on and off." Etc.
+                        </li>
+                        <li>
+                            Local storage object: If you pull an item with localStorage.getItem, you will pull up the VALUE of the key you used to call the key/value pair. If you want to display the KEY, you can use localStorage.key(i) -- where (i) stands for whatever variable calls the key/value pair. (see the function to list all stories below)
+                        </li>
+                    </ul>
+                </section>
+
+                <h2>Exercises</h2>
+                <section>
+                    <h3>Story Editor</h3>
+                    <p>This allows the user to write short stories/posts, save them, and show them. I used external JS and CSS for this instead of in-line. I did some extra research and wrote a function that will show a list of all the saved stories (so you don't have to remember them perfectly to find them again).</p>
+                    <p>Story Name: <input id="name_input"></input></p>
+                    <p>
+                        <button onclick="loadStory()">Find and Edit It</button>
+                        <button onclick="saveStory()">Save It</button>
+                        <button onclick="displayStory()">Display It</button>
+                    </p>
+                    <p><textarea id="story_editor" placeholder="Write your totally awesome story!"></textarea></p>
+
+                    <div id="story_display"></div>
+
+                    <p><button onclick="showAllStories()">List All Stories</button></p>
+                    <div id="story_list"></div>
+                </section>
+            </main>
+
+            <footer>
+                &copy; 2020 Kimberly Weldon. All rights reserved.
+            </footer>
+        
+            <script src="week1.js"></script>
+        </div>
+    </body>
+</html>
