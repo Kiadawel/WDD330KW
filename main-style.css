@@ -13,6 +13,8 @@ header p {
 
 h2 {
     color: #88a0a8;
+    margin: 0;
+    padding: 0;
 }
 
 h3 {
@@ -62,4 +64,18 @@ button {
     border-radius: 3px;
     color: #313e50;
     padding: 5px;
+}
+
+.hideme {
+    display:none;
+}
+
+.showme {
+    display:block;
+}
+
+.hider {
+    font-size: .8em;
+    padding: 0;
+    margin: 0;
 }

@@ -19,7 +19,8 @@
             </header>
             <main>
                 <h2>Notes/Questions</h2>
-                <section>
+                <a id="hider" class="hider" onclick="showNotes()">SHOW</a>
+                <section id="notes" class="hideme">
                     <h3>Doing Stuff With Web Things</h3>
                     <ul> 
                         <li>                       
@@ -33,6 +34,118 @@
                         </li>
                         <li>
                             Local storage object: If you pull an item with localStorage.getItem, you will pull up the VALUE of the key you used to call the key/value pair. If you want to display the KEY, you can use localStorage.key(i) -- where (i) stands for whatever variable calls the key/value pair. (see the function to list all stories below)
+                        </li>
+                    </ul>
+
+                    <h3>Master Mobile UX (Sitepoint mini course)</h3>
+                    <h4>Retrain your brain to design for mobile first</h4>
+                    <ul>
+                        <li>
+                            Smallest and least powerful devices as priority, scaling up to larger screens.
+                        </li>
+                        <li>
+                            Desktop computers are declining; not replaced as often, only 1-2 per household. Mobile devices can be as common as 2-3 per person, per household.
+                        </li>
+                        <li>
+                            "Whatever you are doing - do mobile first"
+                        </li>
+                        <li>
+                            Desktop-first retrofitting is not as good; it's cheaper but not best practice; screen real estate doesn't scale down as easily as up.
+                        </li>
+                        <li>
+                            People don't walk around with their faces in laptops; faces are glued to small screens.
+                        </li>
+                        <li>Mobile is not a fad; it's not going anywhere.</li>
+                    </ul>
+
+                    <h4>Improve UX by Understanding Users</h4>
+                    <ul>
+                        <li>
+                            "People don't know what they want until you show it to them." -Steve Jobs
+                        </li>
+                        <li>
+                            Be There. Be Useful. Be Quick.
+                        </li>
+                        <li>
+                            Don't make users think, or hunt for what they want. Attention spans are minimal; minimize clicks and necessary actions to complete a task, or completely automate the task.
+                        </li>
+                        <li>
+                            Reachability -- many users use one hand/one thumb. Make things easy for one handed grip; place primary controls near bottom of screen.
+                        </li>
+                        <li>
+                            Speed -- delays drop traffic and thus revenue.
+                        </li>
+                        <li>
+                            Networks -- not everyone has the latest and greatest. High speed internet is not universal.
+                        </li>
+                        <li>
+                            Speed Up!
+                            <ul>
+                                <li>Reduce image usage throughout sites/apps</li>
+                                <li>Use SVG/Webfonts</li>
+                                <li>Optimize and Minify CSS and JS files</li>
+                                <li>GZIP files to eliminate unnecessary data</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4>Strategic Menu Design</h4>
+                    <ul>
+                        <li>
+                            Primary Controls -- place most important menu items around bottom/bottom-left area. Menu should pop up from there, with most important menu items at the bottom near the origin.
+                        </li>
+                        <li>
+                            Example: Facebook switched to main icons on the bottom, which increased user satisfaction and made people feel the app was faster even though it wasn't.
+                        </li>
+                        <li>
+                            Hamburger menu icon isn't intuitive -- most effective is the word Menu, with a border so it looks clickable. 
+                        </li>
+                        <li>
+                            Users don't complain -- they just leave. Hit them in the happies. ;)
+                        </li>
+                    </ul>
+
+                    <h4>Intuitive and Mobile Friendly Forms</h4>
+                    <ul>
+                        <li>
+                            Focus on the important things first! Make it simple, let your users think less.
+                        </li>
+                        <li>
+                            Idea: ditch the labels, make inputs bigger, use float labels (text inside field that shrinks when field is clicked but doesn't completely disappear)
+                        </li>
+                        <li>
+                            Make checkboxes larger so thumbs can hit without frustration.
+                        </li>
+                        <li>
+                            Only ask for specific NEEDED info and skip asking for anything you don't need.
+                        </li>
+                        <li>
+                            When form has to be long, paginate with a progress indicator of some sort; avoid long scrolling forms.
+                        </li>
+                        <li>
+                            Enable automation -- autocomplete, auto-spacing numbers for CC info, asking for the appropriate keyboard.
+                        </li>
+                        <li>
+                            Passwords -- allow "show password," or even use it by default and add a "hide password" instead.
+                        </li>
+                        <li>
+                            Phone numbers -- don't force copy/paste; make numbers into anchor tags to allow users to call just by clicking the number.
+                        </li>
+                    </ul>
+
+                    <h4>Better Mobile Advertising UX</h4>
+                    <ul>
+                        <li>
+                            STOP. USING. POPUPS. No one likes them. Also autoplay audio/video. Just don't do it.
+                        </li>
+                        <li>
+                            Keep ads simple and effective; if they have to be inside the content, they should be small. Consider small banners that expand on interaction, or scrolling content "window" between content sections (ex. for an ad hidden behind the article)
+                        </li>
+                        <li>
+                            Don't let advertising outshine the content! Ads should be unobtrusive.
+                        </li>
+                        <li>
+                            STOP USING POPUPS. Seriously. Even the guy who invented them hates them and regrets it.
                         </li>
                     </ul>
                 </section>
@@ -60,6 +173,7 @@
                 &copy; 2020 Kimberly Weldon. All rights reserved.
             </footer>
         
+            <script src="pagefunctions.js"></script>
             <script src="week1.js"></script>
         </div>
     </body>
