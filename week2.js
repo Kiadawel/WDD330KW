@@ -199,6 +199,7 @@ function range(start, end, step){
                 rangeArray.push(i);
             }
         }
+    //counting down
     }else if(start > end){
         for (let i=start; i >= end; i-=step){
             rangeArray.push(i);
@@ -213,6 +214,32 @@ function addRange(array){
         sum += value;
     }
     return sum;
+}
+
+//array reversal functions
+function createArray(){
+    let arrayToReverse = ['A','B','C','D','E','F','G'];
+    return arrayToReverse;
+}
+function reverseArray(origArray){
+    const arrOutput = document.getElementById('array_output');
+    var reversedArray = [];
+    for (const item of origArray){
+        reversedArray.unshift(item);
+    }
+    arrOutput.innerHTML = `Original array: ${origArray.join(', ')}<br /> Reversed array: ${reversedArray.join(', ')}`;
+}
+
+function reverseArrayInPlace(origArray){
+    let arrOutput = document.getElementById('array_output');
+    arrOutput.innerHTML = `Original array: ${origArray.join(', ')}<br />`;
+    for(let i=0; i <= Math.floor((origArray.length - 1)/2); i++){
+        let firstItem = origArray[i];
+        let lastItem = origArray[(origArray.length - 1 - i)];
+        origArray.splice(i, 1, lastItem);
+        origArray.splice((origArray.length - 1 - i), 1, firstItem);
+    }
+    arrOutput.innerHTML += `Same array, reversed in place: ${origArray.join(', ')}`;
 }
 
 //Group Work functions
