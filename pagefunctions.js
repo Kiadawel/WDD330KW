@@ -9,6 +9,6 @@ function showNotes() {
     }
     else {
         notesDisplay.className = 'hideme';
-        notesHider.innerHTML = 'SHOW';
+        notesHider.innerHTML = 'SHOW &#62;';
     }
 }

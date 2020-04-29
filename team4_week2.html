@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+    <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Week 2 | WDD330 | Kimi Weldon</title>
+            <meta name="description" content="Assignments, samples and course projects for Kimi Weldon, for WDD330 at BYU-Idaho.">
+            <meta name="author" content="Kimi Weldon">
+            <link rel="stylesheet" href="main-style.css">
+    </head>
+    
+    <body>
+        <div class="page_wrap">
+            <header>
+                <h1>Week 2 Team Activities</h1>
+                <p>Team 4 assignments done as a group, with some extra fiddling and modification by me after our meeting. <br />
+                    <a href="index.html">&#60; Back to Portfolio</a></p>
+            </header>
+
+                <h2>Exercises</h2>
+                <section>
+                    <h3>Add All Numbers</h3>
+                    <p>The following will take any number entered and add up all integers from 1 to that number, returning the result.
+                    <input id="user_number"></input>
+                    <button onclick="addAllNumbers()">Submit</button></p>
+                    <div id="sum">Enter an integer.</div>
+                </section>
+
+                <section>
+                    <h3>Adding Machine</h3>
+                    <p>Enter two numbers to add them together.</p>
+                    <input type="number" id="add_one"></input> 
+                    <button onclick="addTwo()">&nbsp;+&nbsp;</button>  
+                    <input type="number" id="add_two"></input> = 
+                    <div class="inline" id="sum_two"></div> 
+                    
+                </section>
+
+                <section>
+                    <h3>Multi-Function Calculator</h3>
+                    <p>Enter two numbers and choose a function to perform.</p>
+                        <input type="number" id="num_one"> 
+                        <button onclick="calcTwo(1,getNum())">&nbsp;+&nbsp;</button>
+                        <button onclick="calcTwo(2,getNum())">&nbsp;-&nbsp;</button>
+                        <button onclick="calcTwo(3,getNum())">&nbsp;x&nbsp;</button>
+                        <button onclick="calcTwo(4,getNum())">&nbsp;÷&nbsp;</button>
+                        <input id="num_two" type="number"> = 
+                        <div class="inline" id="answer"></div>
+                </section>
+            </main>
+
+            <footer>
+                &copy; 2020 Kimberly Weldon. All rights reserved.
+            </footer>
+        
+            <script src="pagefunctions.js"></script>
+            <script src="week2.js"></script>
+        </div>
+    </body>
+</html>

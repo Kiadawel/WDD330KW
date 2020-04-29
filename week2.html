@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+    <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Week 2 | WDD330 | Kimi Weldon</title>
+            <meta name="description" content="Assignments, samples and course projects for Kimi Weldon, for WDD330 at BYU-Idaho.">
+            <meta name="author" content="Kimi Weldon">
+            <link rel="stylesheet" href="main-style.css">
+    </head>
+    
+    <body>
+        <div class="page_wrap">
+            <header>
+                <h1>Week 2</h1>
+                <p>Notes and examples for Week 2. <br />
+                    <a href="index.html">&#60; Back to Portfolio</a></p>
+            </header>
+            <main>
+                <h2>Notes/Questions</h2>
+                <a id="hider" class="hider" onclick="showNotes()">HIDE</a>
+                <section id="notes" class="showme">
+                    <h3>Javascript: Novice to Ninja</h3>
+                    <h4>Chapter 2: Programming Basics</h4>
+                    <ul> 
+                        <li>                       
+                            Don't forget how important comments are! Use lots of them! Also whitespace -- space between as well as nesting is helpful for readability of code.
+                        </li>
+                        <li>
+                            New-to-me syntax: Use <strong>const</strong> and <strong>let</strong> in place of var. These are block-level variable declarations. "Const" is for variables whose values will not change; "let" is for variables that will change throughout the program.
+                        </li>
+                        <li>
+                            This chapter answers last week's confusion about semicolons; interpreters use Automatic Semicolon Insertion, but it's still best practice to use semicolons at the end of a statement.
+                        </li>
+                        <li>
+                            Primitive Data Types: String, Symbol (new!), Number, Boolean, Undefined, Null. Everything else is an object (arrays, functions, object literals).
+                        </li>
+                        <li>
+                            Methods described here: toUpperCase, toLowerCase, charAt, indexOf, lastIndexOf, concat, trim
+                        </li>
+                        <li>
+                            New ES6 methods: includes(), startsWith(), endsWith(), repeat().
+                        </li>
+                        <li>
+                            Template literals are so cool! Use the backtick character ` as quotes around a string; this allows both types of quotes to be used, as well as allowing JavaScript code interpolation with ${ code here }
+                        </li>
+                        <li>
+                            New primitive value: Symbols. Use the Symbol() function, with a description inside the parentheses. <strong>How are these used in practice?</strong> Need to research more.
+                        </li>
+                        <li>
+                            Convert a string to a number with Number('7') -- it doesn't work if you try it on a true string like 'hello'. Convert a number to a string by using String(7) or 7..toString().
+                        </li>
+                        <li>
+                            Logical statements: !not, && and, || or. Exponents are notated with ** NOT a carat ^ for example, 2 to the power of 3 would be 2**3. Use Number.isNaN() in place of the former isNaN() to be more specific and reduce errors. Hard equality requires two compared values to be the same datatype: '1' === 1 > false
+                        </li>
+                    </ul>
+
+                    <h4>Chapter 3: Arrays, Logic, and Loops</h4>
+                    <ul>
+                        <li>
+                            Array: An ordered list of values, considered an Object. Create with square brackets, ex. const myArray = [];
+                        </li>
+                        <li>
+                            Call the value of an element in the array with its number, ex myArray[0]. You can also change the value with = just like changing a variable.
+                        </li>
+                        <li>
+                            Arrays are <strong>mutable</strong>; you can change their length, and if shorter than before, that will remove the extra entries.
+                        </li>
+                        <li><strong>Q: What is destructuring used for?</strong></li>
+                        <li>
+                            Array Methods:
+                            <ul>
+                                <li>delete() - removes the value but replaces it with undefined</li>
+                                <li>pop() - returns the last item of the array, but removes it from the array.</li>
+                                <li>shift() - returns the first item of the array, but removes it.</li>
+                                <li>push() - appends a new value to the end of the array.</li>
+                                <li>unshift() - appends a new item at the beginning of the array. (why unshift? This is super non-intuitive)</li>
+                                <li>slice(x,y) - copies out a chunk of the array from x to y (not including y) and creates a subarray to hold it</li>
+                                <li>splice() - removes items from the array and replaces them with new ones.</li>
+                                <li>reverse() - reverses the order of the array permanently.</li>
+                                <li>sort() - sorts the array alphabetically, permanently. (use a callback to do this for numbers)</li>
+                            </ul>
+                        </li>
+                        <li>Sets: new in ES6. Create with = new Set();</li>
+                        <li>Set Methods:</li>
+                            <ul>
+                                <li>add() - places a value into the set (if you try to add one that's already there, it will be ignored)</li>
+                                <li>add([x,y,z]) - enters a list of values into the set with a quick array</li>
+                                <li>new Set([x, y, z]) - creates a set and adds values into it.</li>
+                                <li>size() - checks how many items are in the set and returns the number.</li>
+                                <li>has() - checks for the value in the set and returns true/false.</li>
+                                <li>delete() - removes the item from the set, returns true/false if it was successful or not.</li>
+                                <li>clear() - removes all values from the set.</li>
+                            </ul>
+                        <li>Convert a set into an array with method arrayName = [...setName] OR with arrayName = Array.from(setName). Use this to create a new array without any repeated values.</li>
+                        <li>ES6 new for/of loop for arrays: for(const value of arrayName){do the stuff} -- this saves time not having to recalculate the length of the array vs the iterator in a for loop. Snazzy!</li>
+                        <li>ES6 new item: Maps, ordered lists of key-value pairs. <strong>I need to study these a little more to understand how they work.</strong></li>
+                    </ul>
+
+                    <h4>Javascript: Novice to Ninja, Chapter 4: Functions</h4>
+                    <ul>
+                        <li>Keep code DRY - Don't Repeat Yourself!</li>
+                        <li>Parameters are set when the function is defined; arguments are provided when invoking a function.</li>
+                        <li>New in ES6: Arrow syntax. Shorter, doesn't need parentheses for single parameters, doesn't need a return statement if it's the only command in the function, doesn't bind "this" to the function (whatever that means, TBA later) Examples:
+                            <ul>
+                                <li>const square = x => x*x; (takes one variable, returns the answer to x*x)</li>
+                                <li>const add = (x,y) => x + y; (takes two variables, adds them together)</li>
+                                <li>const hello = () => alert('Hello World!'); (takes no parameters, requires empty parentheses)</li>
+                                <li>const tax = (salary) => {<br />
+                                    function stuff here;<br> />
+                                    } (longer functions can still be placed in a block. This is not as useful as the little one-line arrow functions.)
+                                </li>
+                            </ul>
+                        </li>
+                        <li><strong>Q: What is hoisting used for?</strong> I'm not completely clear on how this works or where it's applicable, if you're using let and const instead of var.</li>
+                        <li>Callbacks allow you to call a function with another function as an argument. (See our <a href="team4_week2.html">Week 2 team exercises</a> for an example)</li>
+                        <li><strong>arguments</strong> is a built-in variable that allows you to access the function's parameters using array-index notation.</li>
+                    </ul>
+                </section>
+
+                <h2>Exercises</h2>
+                <section>
+                    <h3>Chapter 2: Superman Quiz</h3>
+                    <p>Just a basic one-question quiz.</p>
+                    <button onclick="superHeroes()">Click to Try</button>
+                </section>
+                <section>
+                    <h3>Chapter 3: Superheroes Quiz</h3>
+                    <p>Do you know your superheroes' real names? Quiz yourself!</p>
+                    <button onclick="superHeroes()">Start Quiz</button>
+                </section>
+                <section>
+                    <h3>Chapter 4: Superheroes Quiz Revamped</h3>
+                    <p>The same quiz as before, but revamped a little bit. (Also allows for lowercase names)</p>
+                    <button onclick="newSuperHeroes()">Start Quiz</button>
+                </section>
+                <section>
+                    <h3>EJS Chapter 2 Exercises</h3>
+                    <h4>Looping a Triangle</h4>
+                    <p>Click the button to generate a triangle using a loop.</p>
+                    <div id="show_triangle"></div>
+                    <button onclick="loopTriangle()">Show Triangle</button>
+
+                    <h4>FizzBuzz</h4>
+                    <p>Click the button to show all numbers from 1 to 100, with some exceptions:</p>
+                    <ul>
+                        <li>Numbers divisible by 5 and not 3 will show as Fizz.</li>
+                        <li>Numbers divisible by 3 and not 5 will show as Buzz.</li>
+                        <li>Numbers divisible by both 5 and 3 will show as FizzBuzz.</li>
+                    </ul>
+                    <div id="show_buzz"></div>
+                    <button onclick="fizzBuzz()">FizzBuzz!</button>
+
+                    <h4>Chessboard</h4>
+                    <p>Click the button to show an ASCII chessboard.</p>
+                    <div class="chessboard" id="show_chess"></div>
+                    <p>Grid Size: <input type="number" id="grid_num" min="2" max="10" value="2" /><br />
+                    <button onclick="chessBoard(gridSize())">Show Chessboard</button></p>
+
+                    <h3>EJS Chapter 3 Exercises</h3>
+                    <h4>Minimum</h4>
+                    <p>This code accepts two arguments and returns their minimum. Select two numbers.</p>
+                    <input type="number" id="min_one" value="1">
+                    <input type="number" id="min_two" value="1">
+                    <button onclick="getMinimum()">Calculate</button>
+                    <div id="show_min"></div>
+
+                    <h4>Recursion</h4>
+                    <p>This code will check whether a number is odd or even.<br />
+                    *note: Although it functions as desired, I'm not sure I did this right or that it's actually a recursive function.</p>
+                    <input type="number" id="oddeven_num" value="1">
+                    <button onclick="checkOddEven()">Check</button>
+                    <div id="odd_even"></div>
+
+                    <h4>Bean Counting</h4>
+                    <p>This function will count the number of uppercase letters that appear in the user's input. Type a phrase, then select which letter you'd like to count.</p>
+                    <p>Your phrase: <input type="text" id="bean_phrase" /><br>
+                    Which letter would you like to count? <input type="text" id="bean_letter" maxlength="1"><br />
+                    <button onclick="beanCount()">Count Beans</button>
+                    <div id="bean_count"></div>
+
+                    <h3>EJS Chapter 4 Exercises</h3>
+                    <h4>The Sum of a Range</h4>
+                    <p>Enter two numbers. This will return the sum of the range you choose.<br />
+                    Starting number: <input type="number" id="range_start" /><br />
+                    Ending number: <input type="number" id="range_end" /><br />
+                    Step/increment (optional): <input type="number" id="range_step" value="1" /></p>
+                    <button onclick="sumRange()">Click</button>
+                    <div id="range_sum"></div>
+                </section>
+
+            </main>
+
+            <footer>
+                &copy; 2020 Kimberly Weldon. All rights reserved.
+            </footer>
+        
+            <script src="pagefunctions.js"></script>
+            <script src="week2.js"></script>
+        </div>
+    </body>
+</html>
