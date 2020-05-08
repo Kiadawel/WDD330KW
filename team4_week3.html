@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+    <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Week 3 | WDD330 | Kimi Weldon</title>
+            <meta name="description" content="Assignments, samples and course projects for Kimi Weldon, for WDD330 at BYU-Idaho.">
+            <meta name="author" content="Kimi Weldon">
+            <link rel="stylesheet" href="main-style.css">
+    </head>
+    
+    <body>
+        <div class="page_wrap">
+            <header>
+                <h1>Week 3 Team Activities</h1>
+                <p>Team 4 assignments done as a group, with some extra fiddling and modification by me after our meeting. <br />
+                    <a href="index.html">&#60; Back to Portfolio</a></p>
+            </header>
+
+                <h2>Array Cardio 1</h2>
+                <section>
+                    <h3>Array.filter()</h3>
+                    <p>In a given array of inventors, this filters and lists the ones born in the 1500s.
+                    <button onclick="listInv1500s()">Show Me!</button></p>
+                    <div id="inv1500s"></div>
+                </section>
+
+                <section>
+                    <h3>Array.map()</h3>
+                    <p>Takes the same array of inventors, and lists all of them by first and last name.
+                    <button onclick="listFirstLast()">Show Me!</button></p>
+                    <div id="firstlast"></div>
+                </section>
+
+                <section>
+                    <h3>Array.sort()</h3>
+                    <p>Sorts the inventors by birth year.
+                    <button onclick="listBirthDate()">Show Me!</button></p>
+                    <div id="birthdate"></div>
+                </section>
+
+                <section>
+                    <h3>Array.reduce()</h3>
+                    <p>Figures out how old each inventor was, and adds up all of their ages.
+                    <button onclick="sumAges()">Show Me!</button></p>
+                    <div id="sumages"></div>
+                </section>
+
+                <section>
+                    <h3>Array.sort(v2)</h3>
+                    <p>Sorts the inventors by their ages.
+                    <button onclick="sortByAge()">Show Me!</button></p>
+                    <div id="sortbyage"></div>
+                </section>
+
+                <section>
+                    <h3>Sort People</h3>
+                    <p>Sorts a list of people by their last names.
+                    <button onclick="sortByLast()">Show Me!</button></p>
+                    <div id="sortbylast"></div>
+                </section>
+
+                <section>
+                    <h3>Count Data</h3>
+                    <p>Searches through an array and counts up the instances of each particular bit of data.
+                    <button onclick="dataReduce()">Show Me!</button></p>
+                    <div id="datareduce"></div>
+                </section>
+
+                <h2>Array Cardio 2</h2>
+                <section>
+                    <h3>Array.some() and Array.every()</h3>
+                    <p>Checks an array of people to see if some people are over 19, then if every person is over 19.
+                    <button onclick="someEvery()">Show Me!</button></p>
+                    <div id="someevery"></div>
+                </section>
+
+                <section>
+                    <h3>Array.find()</h3>
+                    <p>This searches an array for a given ID and shows you the comment that goes with it.</p>
+                    <p><select id="comm_ids">
+                        <option value="523423">Comment 1</option>
+                        <option value="823423">Comment 2</option>
+                        <option value="2039842">Comment 3</option>
+                        <option value="123523">Comment 4</option>
+                        <option value="542328">Comment 5</option>
+                    </select>
+                    <button onclick="findYou()">Show Me!</button></p>
+                    <div id="findyou"></div>
+                </section>
+
+                <section>
+                    <h3>Array.findIndex()</h3>
+                    <p>Finds a certain entry in the comments array and deletes it. (Results visible in the console only.)</p>
+                    <button onclick="findAndDelete()">Show Me!</button></p>
+                    <div id="findanddelete"></div>
+                </section>
+            </main>
+
+            <footer>
+                &copy; 2020 Kimberly Weldon. All rights reserved.
+            </footer>
+        
+            <script src="pagefunctions.js"></script>
+            <script src="team4_week3.js"></script>
+        </div>
+    </body>
+</html>

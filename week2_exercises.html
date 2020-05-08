@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+    <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Week 2 | WDD330 | Kimi Weldon</title>
+            <meta name="description" content="Assignments, samples and course projects for Kimi Weldon, for WDD330 at BYU-Idaho.">
+            <meta name="author" content="Kimi Weldon">
+            <link rel="stylesheet" href="main-style.css">
+    </head>
+    
+    <body>
+        <div class="page_wrap">
+            <header>
+                <h1>Week 2</h1>
+                <p>Chapter exercises for Week 2. <br />
+                    <a href="index.html">&#60; Back to Portfolio</a></p>
+            </header>
+            <main>
+                <h2>Exercises from Javascript: Novice to Ninja</h2>
+                <section>
+                    <h3>Chapter 2: Superman Quiz</h3>
+                    <p>Just a basic one-question quiz.</p>
+                    <button onclick="superHeroes()">Click to Try</button>
+                </section>
+                <section>
+                    <h3>Chapter 3: Superheroes Quiz</h3>
+                    <p>Do you know your superheroes' real names? Quiz yourself!</p>
+                    <button onclick="superHeroes()">Start Quiz</button>
+                </section>
+                <section>
+                    <h3>Chapter 4: Superheroes Quiz Revamped</h3>
+                    <p>The same quiz as before, but revamped a little bit. (Also allows for lowercase names)</p>
+                    <button onclick="newSuperHeroes()">Start Quiz</button>
+                </section>
+
+                <h2>Exercises from Elegant JavaScript</h2>
+                <section>
+                    <h3>EJS Chapter 2 Exercises</h3>
+                    <h4>Looping a Triangle</h4>
+                    <p>Click the button to generate a triangle using a loop.</p>
+                    <div id="show_triangle"></div>
+                    <button onclick="loopTriangle()">Show Triangle</button>
+
+                    <h4>FizzBuzz</h4>
+                    <p>Click the button to show all numbers from 1 to 100, with some exceptions:</p>
+                    <ul>
+                        <li>Numbers divisible by 5 and not 3 will show as Fizz.</li>
+                        <li>Numbers divisible by 3 and not 5 will show as Buzz.</li>
+                        <li>Numbers divisible by both 5 and 3 will show as FizzBuzz.</li>
+                    </ul>
+                    <div id="show_buzz"></div>
+                    <button onclick="fizzBuzz()">FizzBuzz!</button>
+
+                    <h4>Chessboard</h4>
+                    <p>Click the button to show an ASCII chessboard.</p>
+                    <div class="chessboard" id="show_chess"></div>
+                    <p>Grid Size: <input type="number" id="grid_num" min="2" max="10" value="2" /><br />
+                    <button onclick="chessBoard(gridSize())">Show Chessboard</button></p>
+                </section>
+                <section>
+                    <h3>EJS Chapter 3 Exercises</h3>
+                    <h4>Minimum</h4>
+                    <p>This code accepts two arguments and returns their minimum. Select two numbers.</p>
+                    <input type="number" id="min_one" value="1">
+                    <input type="number" id="min_two" value="1">
+                    <button onclick="getMinimum()">Calculate</button>
+                    <div id="show_min"></div>
+
+                    <h4>Recursion</h4>
+                    <p>This code will check whether a number is odd or even.<br />
+                    *note: Although it functions as desired, I'm not sure I did this right or that it's actually a recursive function.</p>
+                    <input type="number" id="oddeven_num" value="1">
+                    <button onclick="checkOddEven()">Check</button>
+                    <div id="odd_even"></div>
+
+                    <h4>Bean Counting</h4>
+                    <p>This function will count the number of uppercase letters that appear in the user's input. Type a phrase, then select which letter you'd like to count.</p>
+                    <p>Your phrase: <input type="text" id="bean_phrase" /><br>
+                    Which letter would you like to count? <input type="text" id="bean_letter" maxlength="1"><br />
+                    <button onclick="beanCount()">Count Beans</button>
+                    <div id="bean_count"></div>
+                </section>
+                <section>
+                    <h3>EJS Chapter 4 Exercises</h3>
+                    <h4>The Sum of a Range</h4>
+                    <p>Enter two numbers. This will return the sum of the range you choose.<br />
+                    Starting number: <input type="number" id="range_start" /><br />
+                    Ending number: <input type="number" id="range_end" /><br />
+                    Step/increment (optional): <input type="number" id="range_step" value="1" /></p>
+                    <button onclick="sumRange()">Click</button>
+                    <div id="range_sum"></div>
+
+                    <h4>Reversing An Array</h4>
+                    <p>I have created an array. I can reverse it in two ways: one that creates a new array, and one that replaces the original array.</p>
+                    <p><button onclick="reverseArray(createArray())">Reverse New Array</button>
+                    <button onclick="reverseArrayInPlace(createArray())">Reverse In Place</button></p>
+                    <div id="array_output"></div>
+                </section>
+
+            </main>
+
+            <footer>
+                &copy; 2020 Kimberly Weldon. All rights reserved.
+            </footer>
+        
+            <script src="pagefunctions.js"></script>
+            <script src="week2.js"></script>
+        </div>
+    </body>
+</html>

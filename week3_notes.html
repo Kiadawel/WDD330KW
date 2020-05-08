@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+    <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Week 3 | WDD330 | Kimi Weldon</title>
+            <meta name="description" content="Assignments, samples and course projects for Kimi Weldon, for WDD330 at BYU-Idaho.">
+            <meta name="author" content="Kimi Weldon">
+            <link rel="stylesheet" href="main-style.css">
+    </head>
+    
+    <body>
+        <div class="page_wrap">
+            <header>
+                <h1>Week 3</h1>
+                <p>Notes and questions for Week 3. <br />
+                    <a href="index.html">&#60; Back to Portfolio</a></p>
+            </header>
+            <main>
+                <h2>Questions</h2>
+                <section>
+                    <ul>
+                        <li>
+                            Under what circumstances would I want to use "bind?" Is it best practice?
+                        </li>
+                        <li>
+                            Why is anyone still using Internet Explorer anyway??
+                        </li>
+                        <li>
+                            How do I know when to use capturing vs bubbling?
+                        </li>
+                    </ul>
+                </section>
+                
+                <h2>Notes</h2>
+                <a id="hider" class="hider" onclick="showNotes()">HIDE</a>
+                <section id="notes" class="showme">
+                    <h3>Object Methods: this</h3>
+                    <p><a href="https://javascript.info/object-methods" target="_blank">Original article</a></p>
+                    <ul> 
+                        <li>
+                            "this" = "the current object I'm in"
+                        </li>
+                        <li>
+                            You can make commands within an object without using "this," but you can accidentally access a different object. Using "this.whateverkey" is a safe way to access the object you mean.
+                        </li>
+                        <li>
+                            Can be used in a function and it will apply to the object you're manipulating (can be versatile); however, if used without an object, it will be undefined.
+                        </li>
+                        <li>
+                            Arrow functions have no "this." That's a plus if you want to use an arrow function to reference the object it's inside of.
+                        </li>
+                    </ul>
+
+                    <h3>This in JavaScript</h3>
+                    <p><a href="https://zellwk.com/blog/this/" target="_blank">Original article</a></p>
+                    <ul>
+                        <li>"this" value changes depending on how a function is called. It can change:
+                            <ul>
+                                <li>in global context</li>
+                                <li>in object construction</li>
+                                <li>in an object method</li>
+                                <li>in a simple function</li>
+                                <li>in an arrow function</li>
+                                <li>in an event listener</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Global context: defaults to the Window object. Don't use it this way.
+                        </li>
+                        <li>
+                            Object construction: will refer to the instance of the object, i.e. call a function as a parameter, use this.whateverkey and it will pull the object with the parameter you used and get the key/value from that object.
+                        </li>
+                        <li>
+                            Object method: "this" within any object's method refers to the object itself. It's basically a builtin variable that will call itself.
+                        </li>
+                        <li>
+                            Simple functions: Will reference Window by default when first used. Can cause errors. Use arrow notation to avoid confusion.
+                        </li>
+                        <li>
+                            Arrow functions: Use them within an object method and they will reference the object itself.
+                        </li>
+                        <li>
+                            Event listeners: Will reference the element that fired the event, i.e. a button.
+                        </li>
+                        <li>Use "bind" command to change the context of "this" to where you want it to stick. Doesn't work with arrow functions.</li>
+                    </ul>
+
+                    <h3>Javascript: Novice to Ninja</h3>
+                    <h4>Chapter 5: Objects</h4>
+                    <ul>
+                        <li>
+                            Objects are a set of key/value pairs. They can be nested and they can hold many different types of things.
+                        </li>
+                        <li>
+                            Can be created with an object literal. Ex: const superman = { name: 'Superman', realName: 'Clark Kent'} etc. Note: if you must use a space in a key name, it has to be in quotes. So don't do that.
+                        </li>
+                        <li>
+                            Access values with dot notation (ex: superman.name) or bracket notation as a string (ex: superman['name']). Bracket method is mainly for nonstandard properties or expressions that need evaluating to form the key.
+                        </li>
+                        <li>
+                            Symbols can stand in for key names. Not sure when you'd want to do this.
+                        </li>
+                        <li>
+                            Check for properties similar to checking an array, ex: 'city' in superman; (false if no city key exists). Can also use hasOwnProperty() method to check if it originally contained a property (didn't inherit it from somewhere else). The latter is more specific.
+                        </li>
+                        <li>
+                            Find the properties as key/value pairs by looping through the object with for/in.
+                        </li>
+                        <li>
+                            Find only the keys/properties, use Object.keys() which returns an array of key names you can loop through.
+                        </li>
+                        <li>
+                            Object.values() returns an array of only the values in the array.
+                        </li>
+                        <li>Object.entries() returns an array ofthe key/value pairs, each their own array. Use destructuring to access them individually (see this week's team exercises)</li>
+                        <li>
+                            Add properties just by assigning a value, ex: superman.city = 'Metropolis' will add the city key to the superman object with a value of Metropolis. (Don't expect these to stay in order)
+                        </li>
+                        <li>Change properties with assignment as well, ex: superman['real name'] = 'Kal-El';</li>
+                        <li>Remove property with delete. Ex: delete superman.fly; This will remove the key/value pair completely from the object.</li>
+                        <li>Nest objects by containing them inside each other with curly brackets just like nesting functions or arrays. Use either dot or bracket notation (or both) to descend through the nested objects. Ex: jla.aquaman['real name']</li>
+                        <li>Objects can be used as function arguments (I may need to put this one in practice to get it)</li>
+                        <li>Namespacing: When you've written a bunch of functions that relate to each other but have maybe generic names, place them inside an object so you can reference them more specifically. Ex: myFunctions.genericFunctionName() -- this can prevent accidentally duplicating function names.</li>
+                        <li>JSON is a string version of object literal notation, with rules:
+                            <ul>
+                                <li>Must double-quote property names (keys)</li>
+                                <li>Can include: double-quoted strings, numbers, boolean values, arrays, and objects</li>
+                                <li>Cannot include functions.</li>
+                            </ul>
+                        </li>
+                        <li>parse() takes a string of JSON data and returns it as a JS object. stringify() does the opposite (turns an object to JSON) but will ignore functions.</li>
+                        <li>Math objects are built in. I'm sure I will need to look these up a lot. Most used methods:
+                            <ul>
+                                <li>Math.abs() returns absolute value of a number</li>
+                                <li>Math.ciel() rounds a number up to the next integer (if not already an integer)</li>
+                                <li>Math.floor() rounds a number down if it's not already an integer.</li>
+                                <li>Math.round() rounds a number to the nearest integer.</li>
+                                <li>Math.trunc() chops off anything after a decimal point without rounding. (new in ES6)</li>
+                                <li>Math.pow(a,b) will raise a to the power of b. Ex: Math.pow(5,2) = 25</li>
+                                <li>Math.sqrt() returns the positive square root of a number</li>
+                                <li>Math.cbrt() returns the cube root of a number (new in ES6)</li>
+                                <li>Math.hypot(a, b) adds up the squares of the arguments and returns the square root of the sum. Ex: a squared plus b squared = c squared. Can easily calculate a hypotenuse. Can also be used with more than two arguments.</li>
+                                <li>Math.max() or Math.min() returns the maximum/minimum number from the arguments.</li>
+                                <li>Math.random() generates a number between 0 and 1 (not including 1). To specify the range, multiply by the second number. ex: 6 * Math.random() will pull a number between 0 and 6.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Note: Rounding is error prone. Use a library if answers must be very precise.
+                        </li>
+                        <li>RegExp resources:
+                            <ul>
+                                <li><a href="https://www.regextester.com/" target="_blank">Online Regex Tester</a></li>
+                                <li><a href="https://regex101.com/" target="_blank">Regular Expressions 101</a></li>
+                                <li><a href="http://www.regular-expressions.info/" target="_blank">Regular Expressions Info</a></li>
+                            </ul>
+                        </li>
+                        <li>RegExp methods:
+                            <ul>
+                                <li>test() to see if a string matches the pattern (returns true/false)</li>
+                                <li>exec() is like test but returns an array with the first match found, or null.</li>
+                            </ul>
+                        </li>
+                        <li>String methods:
+                            <ul>
+                                <li>split(/regex here/) accepts a regular expression and splits the string into separate array elements.</li>
+                                <li>match(/regex here/) returns an array of all the matches (only first by default; use /g to return every match)</li>
+                                <li>search() returns the position of the first match, -1 if no match</li>
+                                <li>replace() replaces any matches with another string. Ex: 'Kimi'.replace(/[aeiou]/ig,'*'); will return 'K*m*'</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4>Chapter 6: The Document Object Model</h4>
+                    <ul>
+                        <li>
+                            Use typeof to identify what kind of item each element in the document tree is. Ex: typeof body; (Object)
+                        </li>
+                        <li>
+                            Use element.nodeType to figure out what type of node an element is. Relevant-to-HTML node types are:
+                            <ul>
+                                <li>1 - element</li>
+                                <li>2 - attribute</li>
+                                <li>3 - text</li>
+                                <li>8 - comment</li>
+                                <li>9 - body</li>
+                            </ul>
+                        </li>
+                        <li>Use element.nodeName to find the name of the element.</li>
+                        <li>Familiar friends: getElementById(), getElementsByTagName(), getElementsByClassName() -- the latter two return a node list, which is similar to an array but not the same. You can use nodelistName.length to figure out how many elements it holds.</li>
+                        <li>You can use Query Selectors instead of the above, as follows: querySelector('#itemid') with the CSS selector in quotes. Or querySelectorAll('.classname') which returns a node list.</li>
+                        <li>childNodes property lists all children of the node. The children property returns <em>element nodes</em> that are children of the node. Can also use firstChild and lastChild (but watch out for empty text nodes caused by whitespace).</li>
+                        <li>parentNode, nextSibling, and previousSibling are somewhat self explanatory.</li>
+                        <li>Finding a node's value: try nodeName.firstChild.nodeValue, or nodeName.textContent.</li>
+                        <li>getAttribute('attribute') returns the value of the attribute, ie the CSS class or src.</li>
+                        <li>setAttribute('attribute','value') sets the node's attribute and value. Ex: setAttribute('class','villain') would put class="villain" into the HTML element.</li>
+                        <li>Can also use nodeName.className to set a class name by assignment with = but be careful -- this overwrites all classes for the element!</li>
+                        <li>
+                            Another way: nodeName.classList.add('classname') -- can also use classList.remove and classList.toggle. Use classList.contains() to check for a particular class.
+                        </li>
+                        <li>
+                            Basically all of this info is quirky or useless with Internet Explorer. No surprise there.
+                        </li>
+                        <li>
+                            More familiar actions:
+                            <ul>
+                                <li>createElement('tag') creates an HTML tag. Use element.textContent to add... text content. (hint: shorten this process with a createElement function that accepts a tag and text as arguments.</li>
+                                <li>appendChild() and insertBefore() can be used to insert or move DOM elements.</li>
+                                <li>removeChild() is applied to the parent node to remove the child in question.</li>
+                                <li>replaceChild(old,new) replaces one node with another.</li>
+                                <li>innerHTML property can be used to directly write HTML tags.Note: it won't accept script tags.</li>
+                                <li>Update CSS with style attribute. Ex: elementName.style.border = 'red 2px solid' NOTE: CSS properties that are hyphenated must be called with camel case. background-color = backgroundColor.</li>
+                            </ul>
+                        </li>
+                        <li>Use caution when updating CSS. It's better to update the classes when possible so that styles can still be manipulated by the designer within the CSS.</li>
+                    </ul>
+                    <h4>Chapter 7: Events</h4>
+                    <ul>
+                        <li>
+                            An event listener waits for a particular action (clicking/scrolling) to set off an event or function. Ex: document.addEventListener("click",doSomething) will call the function doSomthing() when you click anywhere on the page.
+                        </li>
+                        <li>
+                            "click" event = mouse click, Enter key, or screen tap
+                        </li>
+                        <li>
+                            Called with or without a node; will apply globally (to browser window) if not specifically attached.
+                        </li>
+                        <li>
+                            Quickie listener for entire page: addEventListener('click', () => alert('You clicked!'));
+                        </li>
+                        <li>
+                            Event coordinates - used to find out where a click/event happened:
+                            <ul>
+                                <li>screenX and screenY reference the entire screen</li>
+                                <li>clientX and clientY reference the client (usually browser)</li>
+                                <li>pageX and pageY references the document (takes account of page scrolling)</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Mouse events: mousedown/mouseup, click, dblclick (careful not to use those last two on the same element), mouseover/mouseout, mousemove
+                        </li>
+                        <li>
+                            Keyboard events: keydown, keypress, keyup
+                            <ul>
+                                <li>"keypress" logs a character-input or delete being typed.</li>
+                                <li>Modifier keys (ctrl, alt, meta/cmd, shift) are logged by keydown and keyup but not keypress</li>
+                                <li>Modifier keys can be accessed with shiftKey, altKey, ctrlKey, and metaKey and will return true if pressed.</li>
+                                <li>Ex listening for a shift-click: addEventListener('click',(event) => {if(event.shiftKey){function or event here;}});</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Touch events: touchstart (use with caution), touchend, touchmove, touchenter, touchleave, touchcancel (the word touch now has no meaning for me)
+                        </li>
+                        <li>
+                            Note: there is no "swipe" event; this is created by combining touch events (gesture events have not been implemented yet). If needed, try <a href="http://hammerjs.github.io/" target="_blank">Hammer.JS</a> or <a href="https://zingchart.github.io/zingtouch/" target="_blank">zingtouch</a>.
+                        </li>
+                        <li>
+                            Can use removeEventListener() to remove the listener later, but only if it uses a named function (won't work with anonymous arrow functions)
+                        </li>
+                        <li>
+                            preventDefault() will change the browser's default behavio. Don't do this unless absolutely necessary (it confuses the user)
+                        </li>
+                        <li>Bubbling: firing on clicked element, then bubbling up to the root node</li>
+                        <li>Capturing: firing on root element, then traveling downward to the child element that was clicked on</li>
+                        <li>stopPropagation() will stop bubbling, but may accidentally impact other events.</li>
+                    </ul>
+                </section>
+
+            </main>
+
+            <footer>
+                &copy; 2020 Kimberly Weldon. All rights reserved.
+            </footer>
+        
+            <script src="pagefunctions.js"></script>
+            <script src="week3.js"></script>
+        </div>
+    </body>
+</html>
