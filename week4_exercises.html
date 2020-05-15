@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+    <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Week 3 | WDD330 | Kimi Weldon</title>
+            <meta name="description" content="Assignments, samples and course projects for Kimi Weldon, for WDD330 at BYU-Idaho.">
+            <meta name="author" content="Kimi Weldon">
+            <link rel="stylesheet" href="css/main-style.css">
+    </head>
+    
+    <body>
+        <div class="page_wrap">
+            <header>
+                <h1>Week 4</h1>
+                <p>Chapter exercises for Week 4. <br />
+                    <a href="index.html">&#60; Back to Portfolio</a></p>
+            </header>
+            <main>
+                <h2>Exercises from Javascript: Novice to Ninja</h2>
+                <section>
+                    <h3>Chapter 8: Forms - Make a Superhero</h3>
+                    <form id="hero">
+                        <p><label for="heroName">Superhero Name:
+                            <input type="text" id="heroName" name="heroName" autofocus placeholder="Your Superhero Name" maxlength="32" required>
+                        </label></p>
+                        
+                        <p><label for="realName">Real Name:
+                            <input type="password" name="realName" id="realName">
+                        </label></p>
+
+                        <p>Super Powers:</p>
+                        <p>
+                            <label for="flight">
+                                <input type="checkbox" id="flight" value="Flight" name="powers"> Flight
+                            </label><br />
+
+                            <label for="strength">
+                                <input type="checkbox" id="strength" value="Strength" name="powers"> Super Strength
+                            </label><br />
+
+                            <label for="speed">
+                                <input type="checkbox" id="speed" value="Speed" name="powers"> Super Speed
+                            </label><br />
+
+                            <label for="energy">
+                                <input type="checkbox" id="energy" value="Energy Blasts" name="powers"> Energy Blasts
+                            </label><br />
+
+                            <label for="telekinesis">
+                                <input type="checkbox" id="telekinesis" value="Telekinesis" name="powers"> Telekinesis
+                            </label>
+                        </p>
+
+                        <p>What type of hero are you?</p>
+                        <p>
+                            <label for="hero">
+                                <input type="radio" name="category" value="Hero" id="hero"> Hero
+                            </label><br />
+
+                            <label for="villain">
+                                <input type="radio" name="category" value="Villain" id="villain"> Villain
+                            </label><br />
+
+                            <label for="anti-hero">
+                                <input type="radio" name="category" value="Antihero" id="anti-hero"> Anti-Hero
+                            </label>
+                        </p>
+
+                        <p><label for="age">Age:
+                            <input type="number" id="age" min="0" step="1">
+                        </label></p>
+
+                        <p><label for="City">Base of Operations:<br />
+                            <select name="city" id="city">
+                                <option value="" selected>Choose a City</option>
+                                <option value="Metropolis">Metropolis</option>
+                                <option value="Gotham City">Gotham City</option>
+                                <option value="Keystone City">Keystone City</option>
+                                <option value="Coast City">Coast City</option>
+                                <option value="Star City">Star City</option>
+                            </select>
+                        </label></p>
+
+                        <p><label for="origin">Origin Story:<br />
+                            <textarea id="origin" name="origin" rows="20" cols="60">Born as Kal-El on the planet Krypton...</textarea>
+                        </label></p>
+                        
+                        <button type="submit" id="submit" disabled>Create Your Superhero</button>
+                    </form>
+                </section>
+                
+                <section>
+                    <h3>Chapter 8/12: Quiz Ninja</h3>
+                    <p>Superheroes Quiz, Rebuilt Again</p>
+                    <section class="quiz-body">
+                        <header>
+                            <h1>Quiz Ninja!</h1>
+                            <div id="score">Score: <strong>0</strong></div>
+                        </header>
+                        <div id="result"></div>
+                        <div id="question"></div>
+                        <div id="response"></div>
+                        <div id="info"></div>
+                    </section>
+                    <button id="start">Play Quiz Ninja!</button>
+                </section>
+            </main>
+
+            <footer>
+                &copy; 2020 Kimberly Weldon. All rights reserved.
+            </footer>
+        
+            <script src="js/pagefunctions.js"></script>
+            <script src="js/week4.js"></script>
+        </div>
+    </body>
+</html>

@@ -67,6 +67,7 @@ button {
     border-radius: 3px;
     color: #313e50;
     padding: 5px;
+    cursor: pointer;
 }
 
 .hideme {

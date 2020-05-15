@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+    <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Week 4 | WDD330 | Kimi Weldon</title>
+            <meta name="description" content="Assignments, samples and course projects for Kimi Weldon, for WDD330 at BYU-Idaho.">
+            <meta name="author" content="Kimi Weldon">
+            <link rel="stylesheet" href="css/main-style.css">
+    </head>
+    
+    <body>
+        <div class="page_wrap">
+            <header>
+                <h1>Week 4</h1>
+                <p>Notes and questions for Week 4. <br />
+                    <a href="index.html">&#60; Back to Portfolio</a></p>
+            </header>
+            <main>
+                <h2>Questions</h2>
+                <section>
+                    <ul>
+                        <li>
+                            I don't really have any questions, just huge eyes. O_O I am still trying to process all I'm taking in this week.
+                        </li>
+                    </ul>
+                </section>
+                
+                <h2>Notes</h2>
+                <a id="hider" class="hider" onclick="showNotes()">HIDE</a>
+                <section id="notes" class="showme">
+                    <h3>Javascript: Novice to Ninja</h3>
+                    <h4>Chapter 8: Forms</h4>
+                    <ul>
+                        <li>Access form with document.forms['formName']</li>
+                        <li>Access inputs with something like const input = form.inputName (use the name= attribute rather than id)  </li>
+                        <li>Form methods:
+                            <ul>
+                                <li>form.submit() submits the form automatically. (Doesn't trigger submit event) </li>
+                                <li>submit manually with a button or input element with type="submit"</li>
+                                <li>form.reset() resets all form controls back to default (not a great idea in most circumstances) -- can also be done with type="reset" on a button</li>
+                                <li>form.action sets the action attribute, sending it to another URL to be processed.</li>
+                            </ul>
+                        </li>
+                        <li>Form events:
+                            <ul>
+                                <li>focus: occurs when an element is focused on (tabbed to, or clicked)</li>
+                                <li>blur: occurs when focus is moved away (lol, that's funny)</li>
+                                <li>change: occurs when focus is shifted away, after changing the value of the field.</li>
+                                <li>submit: occurs when the form is submitted; allows you to grab the data before it's sent to the server.</li>
+                            </ul>
+                        </li>
+                        <li>Retrieve data with the "value" attribute</li>
+                        <li>Form controls:
+                            <ul>
+                                <li>input fields: text, passwords, checkboxes, radio buttons, file uploads</li>
+                                <li>select: drop down menus</li>
+                                <li>textarea: longer text entry</li>
+                                <li>button: elements for submitting and resetting forms</li>
+                            </ul>
+                        </li>
+                        <li>New input attributes for HTML5
+                            <ul>
+                                <li>autofocus (focuses on a given element when page loads)</li>
+                                <li>placeholder attribute: default text that doesn't count as a value</li>
+                                <li>maxlength: limits the number of characters that can be typed in the field</li>
+                                <li>required: won't submit the form if left empty</li>
+                                <li>disabled: grays out the form element/no interaction possible</li>
+                                <li>type="password" functions like a text input but bleeps out the characters.</li>
+                                <li>Other input types to note: date, email, tel, url, search, number, range, etc.</li>
+                                <li>type="text" is default; no longer necessary, but still good to use for maintenance/readability purposes.</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4>Chapter 12: Object-Oriented Programming in JavaScript</h4>
+                    <ul>
+                        <li>Three main concepts: Encapsulation, Polymorphism, and Inheritance</li>
+                        <li>Encapsulation -- inner workings of the object are kept hidden inside and only essentials are visible to the user; all logic is inside, with methods available to implement functionality.</li>
+                        <li>Polymorphism -- the same process can be used for different objects; various objects can share the same method, and can override it to be more specific.</li>
+                        <li>Inheritance -- an object that already exists can be taken and upgraded, taking all its original properties and methods and adding new ones</li>
+                        <li>class based languages: Java, Ruby. Each object is an instance of a class, which is the blueprint for that object.</li>
+                        <li>prototype-based languages -- Javascript (prior to ES6, and still in the background). Each object must be built first, then other objects can be based on it (similar to a class, but different)</li>
+                        <li>Constructor function -- a function to define/create a new object; can then be called on to create and modify a new instance of itself. Ex: const Dice = function(){some code here}, later used as const redDice = new Dice(); that can then be modified to be more specific. (parentheses are not required unless arguments need to be passed through the function)</li>
+                        <li>Check object type with instanceof, ex: redDice instanceof Dice (returns true)</li>
+                        <li>each new instance of an object inherits the same properties and methods defined in the constructor (ie, sides, roll() method for Dice object)</li>
+                        <li>Built-in constructor functions: Object, Array, and Function can be used instead of literals
+                            <ul>
+                                <li>literal syntax: const literalObject = {};</li>
+                                <li>Object constructor function: constructedObject = new Object();</li>
+                                <li>the literal is still an "instanceof" the Object constructor.</li>
+                                <li>literal array: const literalArray = [1,2,3]</li>
+                                <li>Array constructor: constructedArray = new Array(1,2,3); -- this can be confusing, since if you only supply one argument it will use that as the length of the array. (Recommended to always use literals for arrays)</li>
+                            </ul>
+                        </li>
+                        <li>ES6: new class declaration syntax; works like a constructor function but looks more like class-based languages. Ex: class Dice {methods/properties here}</li>
+                        <li>Syntax -- capitalize constructor functions and class declarations for consistency with class-based programming.</li>
+                        <li>Create new instance of the class with the "new" operator, ex: const blueDice = new Dice(20);</li>
+                        <li>Always use "new" to create a new instance, or you can cause errors and issues.</li>
+                        <li>All objects have a constructor property that returns the constructor function that created it. If uncknown, you can just call it, ex: const greenDice = new redDice.constructor(10); -- greenDice would then be an instanceOf Dice.</li>
+                        <li>Static keyword creates a method that is called by the class, not instances of the class. Ex: static description() { return 'A way of choosing random numbers' } -- this could be called by using Dice.description() but not by redDice.description()</li>
+                        <li>Prototypes -- all objects inherit the prototype's methods and properties. You can find this by using objectName.constructor.prototype; which returns the prototype object. You can also use Object.getPrototypeOf(objectName);</li>
+                        <li>Prototypes are LIVE -- all instances will inherit all new properties that are added to the prototype, even if added later.</li>
+                        <li>An instance can overwrite the default properties of the prototype. Ex: instanceName.property = 'New Property'; will cause the new value to be called for that instance. This is now the object's "own" property rather than an inherited one.</li>
+                        <li>Prototype properties should be things that apply to all instances of the object, like "pizza" for Ninja Turtle's favorite food. NEVER use arrays or objects as a default value in prototype; they will be shared in all instances. Use them in the constructor function in the class declaration instead.</li>
+                        <li>Variable scope allows some properties and methods to remain private so they can't be accessed from outside. Using "let" instead of "const" keeps the variable local, so it cannot be accessed easily from outside. You can use getter and setter methods to provide controlled access to the property. This allows you to control what the parameters can be (must be a string, etc)</li>
+                        <li>Object properties that show up in a loop are called "enumerable" -- things created by assignment, etc. Most builtin properties and methods are (and should be) innumerable, such as the toString() method.</li>
+                        <li>Use "extends" to create a sub-class that inherits the properties of another. Ex: class Thumbs extends Fingers { properties of a thumb that a finger doesnt have } This is a child declaration that still can use the original class properties but also has some of its own that do not travel upwards.</li>
+                        <li>Polymorphism -- you can override default methods for your own purposes. Ex: toString() {return 'A special kind of finger'} and Thumb.toString(); would return 'A special kind of finger' rather than an array of all the object's properties and methods.</li>
+                        <li>Monkey-patching lets you add extra methods to other built-in objects like Number, String, and Array, but this is frowned on in JavaScript (but often used in Ruby) Some useful functions though
+                            <ul>
+                                <li>Number.prototype.isEven = function(){return this%2 === 0;} would let you use 1..isEven(); to check if 1 is even or not (returns a true or false). (Could also set isOdd, similarly)</li>
+                                <li>Array.prototype.first = function(){return this[this.length - 1];} would return the first item in the array (could also do last).</li>
+                                <li>Should generally be avoided because of unexpected behavior in different browsers.</li>
+                                <li>Safe way to monkey-patch: Use extends to subclass a builtin class, and add your methods there.</li>
+                            </ul>
+                        </li>
+                        <li>Instead of creating classes, you can use an object as a prototype for a new one with "create". Ex: create an object constructor function called Human, create a new instance of it with const lois = Object.create(Human); -- lois then inherits all properties and methods of Human, just like a class. </li>
+                        <li>Can also add properties at the same time, such as: const jimmy = Object.create(Human, {value: 'Jimmy Olsen', enumerable:true}etc. This is cumbersome.</li>
+                        <li>More efficient: add an "init()" method to the object so you can pass through values the first time. (set values to passed values, set init to undefined so you don't run it twice)</li>
+                        <li>Chaining: const aquaman = Object.create(Superhuman).init('Aquaman','Arthur Curry'); -- lets you create aquaman's instance of Superhuman and set his name and real name at the same time. </li>
+                        <li>Mixins let you add properties and methods from one object to another without using inheritance. (Refer to chapter for very confusing description)</li>
+                        <li>Use mixins to add properties to a new object. Ex: const wonderWoman = Object.create(Superhuman); then mixin(wonderWoman,{name:'Wonder Woman', realName: 'Diana Prince' }};</li>
+                        <li>Also use mixins to copy one object "deeply" (so it's no longer referencing the first) with a copy function that grabs the object's prototype, and uses a mixin function to copy all the properties over.</li>
+                        <li>Mixins basically let you create individual modules you can add in again elsewhere.</li>
+                        <li>Binding "this" should happen when you have a nested function that's referring to a local object instead of a global one. One option is to use const that = this; which will make "this" refer to the object that called it and not lose its scope when nested afterwards. You would then use "that" in a nested function instead of this.</li>
+                        <li>For-of loops and arrow functions don't need re-binding of "this."</li>
+                        <li>Composition over inheritance: Keep things simple; keep inheritance chains short and classes simple.</li>
+
+                    </ul>
+
+                    <h4>Chapter 15: Modern JavaScript (Modular JavaScript)</h4>
+                    <ul>
+                        <li>Module: a self-contained piece of code that provides functions and methods that can be used by other things; reusable, separate files usually</li>
+                        <li>Coupling/Decoupling: Two things are tightly coupled if they depend on each other heavily. Try to decouple things as much as possible so code is easy to lift out and use elsewhere.</li>
+                    </ul>
+                </section>
+
+            </main>
+
+            <footer>
+                &copy; 2020 Kimberly Weldon. All rights reserved.
+            </footer>
+        
+            <script src="js/pagefunctions.js"></script>
+            <script src="js/week3.js"></script>
+        </div>
+    </body>
+</html>
