@@ -51,7 +51,6 @@ export default class Hikes {
   getHikeByName(hikeName) {
     return this.getAllHikes().find(hike => hike.name === hikeName);
   }
-
   showHikeList() {
     console.log('showing the hike list');
     const hikeList = myHike.getAllHikes();
