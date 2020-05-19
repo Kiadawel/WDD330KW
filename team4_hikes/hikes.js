@@ -53,12 +53,11 @@ export default class Hikes {
   }
   showHikeList() {
     console.log('showing the hike list');
-    const hikeList = getAllHikes();
+    const hikeList = this.getAllHikes();
     const hikeListElement = document.getElementById('hikes');
     hikeListElement.innerHTML = "";
     renderHikeList(hikeListElement, hikeList);
   }
-
   renderHikeList(parent, hikes) {
     for(item in hikes){
       parent.appendChild(renderOneHikeLight(item));
