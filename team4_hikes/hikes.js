@@ -56,7 +56,7 @@ export default class Hikes {
     const hikeList = this.getAllHikes();
     const hikeListElement = document.getElementById('hikes');
     hikeListElement.innerHTML = "";
-    renderHikeList(hikeListElement, hikeList);
+    this.renderHikeList(hikeListElement, hikeList);
   }
   renderHikeList(parent, hikes) {
     for(item in hikes){
