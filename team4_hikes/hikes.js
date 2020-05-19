@@ -59,9 +59,9 @@ export default class Hikes {
     this.renderHikeList(hikeListElement, hikeList);
   }
   renderHikeList(parent, hikes) {
-    for(item in hikes){
-      parent.appendChild(renderOneHikeLight(item));
-    }
+    hikes.forEach(hike => {
+      parent.appendChild(renderOneHike(hike));
+    });  
   }
   //show a list of hikes in the parentElement
   // show one hike with full details in the parentElement
