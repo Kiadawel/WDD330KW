@@ -1,4 +1,5 @@
 import Hikes from './hikes.js';
+console.log('Hi I am working');
 
 const myHike = new Hikes('hikeListId');
 
@@ -14,8 +15,8 @@ function showHikeList() {
 }
 
 function renderHikeList(parent, hikes) {
-  for(hike in hikes){
-    parent.appendChild(renderOneHikeLight(hike));
+  for(item in hikes){
+    parent.appendChild(renderOneHikeLight(item));
   }
 }
 
