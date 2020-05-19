@@ -53,7 +53,7 @@ export default class Hikes {
   }
   showHikeList() {
     console.log('showing the hike list');
-    const hikeList = myHike.getAllHikes();
+    const hikeList = getAllHikes();
     const hikeListElement = document.getElementById('hikes');
     hikeListElement.innerHTML = "";
     renderHikeList(hikeListElement, hikeList);
