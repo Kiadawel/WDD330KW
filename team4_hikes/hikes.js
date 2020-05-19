@@ -52,9 +52,6 @@ export default class Hikes {
     return this.getAllHikes().find(hike => hike.name === hikeName);
   }
   //show a list of hikes in the parentElement
-  showHikeList() {
-
-  }
   // show one hike with full details in the parentElement
   showOneHike(hikeName) {
 
