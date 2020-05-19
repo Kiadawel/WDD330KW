@@ -34,7 +34,7 @@ const hikeList = [
     }
   ];
 
- 
+ console.log('And I am the HIKE file.');
   //on load grab the array and insert it into the page on load
   
 export default class Hikes {
@@ -53,6 +53,7 @@ export default class Hikes {
   }
 
   showHikeList() {
+    console.log('showing the hike list');
     const hikeList = myHike.getAllHikes();
     const hikeListElement = document.getElementById('hikes');
     hikeListElement.innerHTML = "";
