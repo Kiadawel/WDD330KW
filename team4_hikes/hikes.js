@@ -58,6 +58,12 @@ export default class Hikes {
     hikeListElement.innerHTML = "";
     renderHikeList(hikeListElement, hikeList);
   }
+
+  renderHikeList(parent, hikes) {
+    for(item in hikes){
+      parent.appendChild(renderOneHikeLight(item));
+    }
+  }
   //show a list of hikes in the parentElement
   // show one hike with full details in the parentElement
   showOneHike(hikeName) {
