@@ -34,9 +34,9 @@ const hikeList = [
     }
   ];
 
- console.log('And I am the HIKE file.');
-  //on load grab the array and insert it into the page on load
-  
+// Example of using Classes and modules to organize the code needed to render our list of hikes. Not using MVC here.
+const imgBasePath = "images/";
+
 export default class Hikes {
   constructor(elementId) {
     this.parentElement = document.getElementById(elementId);
@@ -56,7 +56,7 @@ export default class Hikes {
     const hikeList = this.getAllHikes();
     const hikeListElement = document.getElementById('hikes');
     hikeListElement.innerHTML = "";
-    this.renderHikeList(hikeListElement, hikeList);
+    renderHikeList(hikeListElement, hikeList);
   }
 
   //show a list of hikes in the parentElement
@@ -74,28 +74,35 @@ export default class Hikes {
 
     return backButton;
   }
-  renderHikeList(parent, hikes) {
-    console.log('rendering the hike list');
-    hikes.forEach(hike => {
-      parent.appendChild(this.renderOneHikeLight(hike));
-    });  
-  }
-  
-  renderOneHikeLight(hike) {
-    console.log('rendering one hike');
-    const item = document.createElement("li");
-    item.innerHTML = ` <h2>${hike.name}</h2>
-    <div class="image"><img src="images/${hike.imgSrc}" alt="${hike.imgAlt}"></div>
-    <div>
-            <div>
-                <h3>Distance</h3>
-                <p>${hike.distance}</p>
-            </div>
-            <div>
-                <h3>Difficulty</h3>
-                <p>${hike.difficulty}</p>
-            </div>
-    </div>`;
-    return item;
-  }
+}
+// methods responsible for building HTML.  Why aren't these in the class?  They don't really need to be, and by moving them outside of the exported class, they cannot be called outside the module...they become private.
+function renderHikeList(parent, hikes) {
+  console.log('rendering the hike list');
+  hikes.forEach(hike => {
+    parent.appendChild(renderOneHikeLight(hike));
+  });  
+}
+
+function renderOneHikeLight(hike) {
+  console.log('rendering one hike');
+  const item = document.createElement("li");
+  item.innerHTML = ` <h2>${hike.name}</h2>
+  <div class="image"><img src="${imgBasePath}${hike.imgSrc}" alt="${hike.imgAlt}"></div>
+  <div>
+          <div>
+              <h3>Distance</h3>
+              <p>${hike.distance}</p>
+          </div>
+          <div>
+              <h3>Difficulty</h3>
+              <p>${hike.difficulty}</p>
+          </div>
+  </div>`;
+  return item;
+}
+
+function renderOneHikeFull(hike) {
+  const item = document.createElement("li");
+
+  return item; 
 }
