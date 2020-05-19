@@ -51,6 +51,13 @@ export default class Hikes {
   getHikeByName(hikeName) {
     return this.getAllHikes().find(hike => hike.name === hikeName);
   }
+
+  showHikeList() {
+    const hikeList = myHike.getAllHikes();
+    const hikeListElement = document.getElementById('hikes');
+    hikeListElement.innerHTML = "";
+    renderHikeList(hikeListElement, hikeList);
+  }
   //show a list of hikes in the parentElement
   // show one hike with full details in the parentElement
   showOneHike(hikeName) {
