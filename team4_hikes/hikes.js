@@ -58,12 +58,7 @@ export default class Hikes {
     hikeListElement.innerHTML = "";
     this.renderHikeList(hikeListElement, hikeList);
   }
-  renderHikeList(parent, hikes) {
-    console.log('rendering the hike list');
-    hikes.forEach(hike => {
-      parent.appendChild(renderOneHikeLight(hike));
-    });  
-  }
+
   //show a list of hikes in the parentElement
   // show one hike with full details in the parentElement
   showOneHike(hikeName) {
@@ -78,5 +73,29 @@ export default class Hikes {
     const backButton = document.createElement("button");
 
     return backButton;
+  }
+  renderHikeList(parent, hikes) {
+    console.log('rendering the hike list');
+    hikes.forEach(hike => {
+      parent.appendChild(this.renderOneHikeLight(hike));
+    });  
+  }
+  
+  renderOneHikeLight(hike) {
+    console.log('rendering one hike');
+    const item = document.createElement("li");
+    item.innerHTML = ` <h2>${hike.name}</h2>
+    <div class="image"><img src="${imgBasePath}${hike.imgSrc}" alt="${hike.imgAlt}"></div>
+    <div>
+            <div>
+                <h3>Distance</h3>
+                <p>${hike.distance}</p>
+            </div>
+            <div>
+                <h3>Difficulty</h3>
+                <p>${hike.difficulty}</p>
+            </div>
+    </div>`;
+    return item;
   }
 }
