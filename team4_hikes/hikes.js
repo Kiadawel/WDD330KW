@@ -72,6 +72,7 @@ export default class Hikes {
     hikesArr.forEach(li => {
       li.addEventListener('touchend', e => {
         this.showOneHike(e.currentTarget.dataset.name);
+        console.log(e.currentTarget).dataset.name;
       })
     })
   }
