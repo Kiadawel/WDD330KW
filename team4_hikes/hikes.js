@@ -73,7 +73,7 @@ export default class Hikes {
     const hikesArr = Array.prototype.slice.call(hikeItems);
     console.log(hikesArr);
     hikesArr.forEach(hike => {
-      hike.addEventListener('click', this.showOneHike(getHikeByName(hike)));
+      hike.addEventListener('click', this.showOneHike(this.getHikeByName(hike)));
     });
   }
   buildBackButton() {
