@@ -2,7 +2,7 @@
 const hikeList = [
     {
       name: "Bechler Falls",
-      imgSrc: "falls.jpg",
+      imgSrc: "bechler.jpg",
       imgAlt: "Image of Bechler Falls",
       distance: "3 miles",
       difficulty: "Easy",
@@ -13,8 +13,8 @@ const hikeList = [
     }, 
     {
       name: "Teton Canyon",
-      imgSrc: "falls.jpg",
-      imgAlt: "Image of Bechler Falls",
+      imgSrc: "teton.jpg",
+      imgAlt: "Image of Teton Canyon",
       distance: "3 miles",
       difficulty: "Easy",
       description: "Beautiful short (or long) hike through Teton Canyon.",
@@ -22,9 +22,9 @@ const hikeList = [
         "Take Highway 33 East to Driggs. Turn left onto Teton Canyon Road. Follow that road for a few miles then turn right onto Stateline Road for a short distance, then left onto Alta Road. Veer right after Alta back onto Teton Canyon Road. There is a parking area at the trailhead."
     },
     {
-      name: "Denanda Falls",
-      imgSrc: "falls.jpg",
-      imgAlt: "Image of Bechler Falls",
+      name: "Dunanda Falls",
+      imgSrc: "dunanda.jpg",
+      imgAlt: "Image of Dunanda Falls",
       distance: "7 miles",
       difficulty: "Moderate",
       description:
@@ -34,7 +34,7 @@ const hikeList = [
     }
   ];
 
-// Example of using Classes and modules to organize the code needed to render our list of hikes. Not using MVC here.
+// set variables to be used by the class
 const imgBasePath = "images/";
 
 export default class Hikes {
@@ -51,6 +51,7 @@ export default class Hikes {
   getHikeByName(hikeName) {
     return this.getAllHikes().find(hike => hike.name === hikeName);
   }
+  //show a list of hikes in the parentElement
   showHikeList() {
     console.log('showing the hike list');
     const hikeList = this.getAllHikes();
@@ -58,16 +59,17 @@ export default class Hikes {
     hikeListElement.innerHTML = "";
     renderHikeList(hikeListElement, hikeList);
   }
-
-  //show a list of hikes in the parentElement
   // show one hike with full details in the parentElement
   showOneHike(hikeName) {
-
+    const hikeListParent = document.getElementById('hikes');
+    hikeListParent.innerHTML = "";
   }
   // in order to show the details of a hike ontouchend we will need to attach a listener AFTER the list of hikes has been built. The function below does that.
   addHikeListener() {
-    // We need to loop through the children of our list and attach a listener to each, remember though that children is a nodeList...not an array. So in order to use something like a forEach we need to convert it to an array.
-    
+    // get all 'li' children of the 'ul' element
+    const hikeItems = document.querySelectorAll("#hikes > li");
+    const hikesArr = Array.prototype.slice.call(hikeItems);
+    console.log(hikesArr);
   }
   buildBackButton() {
     const backButton = document.createElement("button");
