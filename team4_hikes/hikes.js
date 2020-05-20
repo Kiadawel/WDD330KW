@@ -69,6 +69,7 @@ export default class Hikes {
   addHikeListener() {
     // get all 'li' children of the 'ul' element
     const hikesArr = Array.from(this.parentElement.children);
+    console.log(hikesArr);
     hikesArr.forEach(li => {
       li.addEventListener('touchend', e => {
         this.showOneHike(e.currentTarget.dataset.name);
