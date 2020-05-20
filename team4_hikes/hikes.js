@@ -83,7 +83,7 @@ function renderHikeList(parent, hikes) {
   hikes.forEach(hike => {
     parent.appendChild(renderOneHikeLight(hike));
   });
-  addHikeListener();  
+  this.addHikeListener();  
 }
 
 function renderOneHikeLight(hike) {
