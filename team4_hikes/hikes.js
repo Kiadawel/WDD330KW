@@ -68,12 +68,12 @@ export default class Hikes {
   // in order to show the details of a hike ontouchend we will need to attach a listener AFTER the list of hikes has been built. The function below does that.
   addHikeListener() {
     // get all 'li' children of the 'ul' element
-    const hikeItems = document.querySelectorAll("#hikes > li");
-    const hikesArr = Array.prototype.slice.call(hikeItems);
-    console.log(hikesArr);
-    hikesArr.forEach(hike => {
-      hike.addEventListener('click', this.showOneHike(hike.name));
-    });
+    const hikesArr = Array.from(this.parentElement.children);
+    hikesArr.forEach(li => {
+      li.addEventListener('touchend', e => {
+        this.showOneHike(e.currentTarget.dataset.name);
+      })
+    })
   }
   buildBackButton() {
     const backButton = document.createElement("button");
