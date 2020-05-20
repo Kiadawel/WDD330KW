@@ -63,7 +63,7 @@ export default class Hikes {
   // show one hike with full details in the parentElement
   showOneHike(hikeName) {
     const hikeListParent = document.getElementById('hikes');
-    hikeListParent.innerHTML = hikeName;
+    hikeListParent.innerHTML = this.getHikeByName(hikeName);
   }
   // in order to show the details of a hike ontouchend we will need to attach a listener AFTER the list of hikes has been built. The function below does that.
   addHikeListener() {
@@ -72,7 +72,7 @@ export default class Hikes {
     const hikesArr = Array.prototype.slice.call(hikeItems);
     console.log(hikesArr);
     hikesArr.forEach(hike => {
-      hike.addEventListener('click', this.showOneHike(this.getHikeByName(hike)));
+      hike.addEventListener('click', this.showOneHike(hike.name));
     });
   }
   buildBackButton() {
