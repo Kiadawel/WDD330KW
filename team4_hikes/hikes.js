@@ -58,6 +58,7 @@ export default class Hikes {
     const hikeListElement = document.getElementById('hikes');
     hikeListElement.innerHTML = "";
     renderHikeList(hikeListElement, hikeList);
+    this.addHikeListener();
   }
   // show one hike with full details in the parentElement
   showOneHike(hikeName) {
@@ -83,7 +84,6 @@ function renderHikeList(parent, hikes) {
   hikes.forEach(hike => {
     parent.appendChild(renderOneHikeLight(hike));
   });
-  this.addHikeListener();  
 }
 
 function renderOneHikeLight(hike) {
