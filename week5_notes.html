@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+    <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Week 5 | WDD330 | Kimi Weldon</title>
+            <meta name="description" content="Assignments, samples and course projects for Kimi Weldon, for WDD330 at BYU-Idaho.">
+            <meta name="author" content="Kimi Weldon">
+            <link rel="stylesheet" href="css/main-style.css">
+    </head>
+    
+    <body>
+        <div class="page_wrap">
+            <header>
+                <h1>Week 5</h1>
+                <p>Notes and questions for Week 5. <br />
+                    <a href="index.html">&#60; Back to Portfolio</a></p>
+            </header>
+            <main>
+                <h2>Questions</h2>
+                <section>
+                    <ul>
+                        <li>
+                            Is try/catch/finally somewhat like a chain of if statements and an else?
+                        </li>
+                    </ul>
+                </section>
+                
+                <h2>Notes</h2>
+                <a id="hider" class="hider" onclick="showNotes()">SHOW &#62;</a>
+                <section id="notes" class="hideme">
+                    <h3>Javascript: Novice to Ninja</h3>
+                    <h4>Chapter 10: Testing and Debugging</h4>
+                    <ul>
+                        <li>
+                            Use good debugging practices from the start; it's easier to squash them before they cascade and get bigger.
+                        </li>
+                        <li>
+                            Put JS in strict mode with "use strict" either for whole file or one function. Note: modules are in strict mode by default, so this declaration is not required.
+                        </li>
+                        <li>
+                            Use linting tools (<a href="http://jslint.com/" target="_blank">JS Lint</a>, <a href="https://jshint.com/" target="_blank">JS Hint</a>, <a href="https://eslint.org/" target="_blank">ES Lint</a>) to double-check code for best practices.
+                        </li>
+                        <li>
+                            Use feature detection (an if statement that checks for browser support) to make sure a method is supported before calling it. Ex: if(window.holoDeck) {virtualReality.activate();} -- if holoDeck is not supported, the higher level function "virtual reality" won't be run.
+                        </li>
+                        <li>
+                            Console/browser's builtin debugging is a huge help! Use breakpoints to track what is happening step by step. You can write in a breakpoint with the command "debugger;" but make sure to remove them all before shipping!
+                        </li>
+                        <li>
+                            console.log() is always helpful; also consider console.trace() to show what leads up to an exception.
+                        </li>
+                        <li>
+                            Use "throw" statement to throw an exception
+                        </li>
+                        <li>
+                            Error object is created when an exception occurs. You can make your own error message. Ex: const error = new Error('Whoopsie-daisies!'); Other errors that are thrown automatically:
+                            <ul>
+                                <li>EvalError (deprecated)</li>
+                                <li>RangeError - number is outside allowable range</li>
+                                <li>ReferenceError - you called something (a variable or function) that doesn't exist.</li>
+                                <li>SyntaxError - an error in the syntax (missing semicolon, typo, etc</li>
+                                <li>TypeError - an error in the value type, like a string where a number is needed.</li>
+                                <li>URIError - a problem decoding or encoding the URI</li>
+                                <li>InternalError - nonstandard; commonly caused by an unending loop. "You borked the JavaScript."</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Place code inside a "try" block to pass error objects to a "catch" block. Use a "finally" block to run afterwards, whether the exception does or doesn't happen.
+                        </li>
+                        <li>
+                            Test-driven development: Write tests that fail on purpose, then write code that passes; redo this every time a new feature is added
+                        </li>
+                        <li>
+                            Jest framework is another testing option.
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Reference Links</h3>
+
+                    <h4>Linting</h4>
+                    <ul>
+                        <li><a href="http://jslint.com/" target="_blank">JS Lint</a></li> 
+                        <li><a href="https://jshint.com/" target="_blank">JS Hint</a></li> 
+                        <li><a href="https://eslint.org/" target="_blank">ES Lint</a></li>
+                    </ul>
+
+                    <h4>Debugging Tools</h4>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Tools/Debugger" target="_blank">Firefox</a></li>
+                        <li><a href="https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/debugger" target="_blank">Edge</a></li>
+                        <li><a href="https://developers.google.com/web/tools/chrome-devtools/?utm_campaign=2016q3&utm_medium=redirect&utm_source=dcc" target="_blank">Chrome</a></li>
+                        <li><a href="https://support.apple.com/guide/safari-developer/debugging-overview-devd24689f72/mac" target="_blank">Safari</a></li>
+                    </ul>
+
+                    <h4>Articles</h4>
+                    <ul>
+                        <li>
+                            <a href="https://www.sitepoint.com/three-little-known-development-console-api-methods/" target="_blank">More Console Functions</a>
+                        </li>
+                    </ul>
+                </section>
+            </main>
+
+            <footer>
+                &copy; 2020 Kimberly Weldon. All rights reserved.
+            </footer>
+        
+            <script src="js/pagefunctions.js"></script>
+            <script src="js/week5.js"></script>
+        </div>
+    </body>
+</html>
