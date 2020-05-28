@@ -1,6 +1,8 @@
 /************************
 * Main Class and Methods / 
 *************************/
+import './ls.js';
+import './utilities.js';
 export default class ToDos {
     constructor(elementID) {
         this.parentElement = document.getElementById(elementID);
@@ -105,5 +107,3 @@ export default class ToDos {
     }
 }
 
-import './ls.js';
-import './utilities.js';
