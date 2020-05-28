@@ -1,7 +1,23 @@
+import './ls.js';
+import './utilities.js';
+
+const myToDoList = new ToDos('todo');
+window.addEventListener('load', () => {
+  myToDoList.showToDoList();
+});
+
+// test function, to be removed later
+function clearLS(){
+    console.log('clearLS invoked');
+    localStorage.clear('todo');
+    console.log(localStorage.getItem('todo'));
+    myToDoList.showToDoList();
+}
+
 /************************
 * Main Class and Methods / 
 *************************/
-export default class ToDos {
+class ToDos {
     constructor(elementID) {
         this.parentElement = document.getElementById(elementID);
         this.LSkey = this.parentElement.id;
@@ -105,19 +121,5 @@ export default class ToDos {
     }
 }
 
-import './ls.js';
-import './utilities.js';
 
-const myToDoList = new ToDos('todo');
-window.addEventListener('load', () => {
-  myToDoList.showToDoList();
-});
-
-// test function, to be removed later
-function clearLS(){
-    console.log('clearLS invoked');
-    localStorage.clear('todo');
-    console.log(localStorage.getItem('todo'));
-    myToDoList.showToDoList();
-}
 
