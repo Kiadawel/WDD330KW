@@ -85,9 +85,10 @@ export default class Hikes {
     this.parentElement.before(backButton);
     return backButton;
   }
-  }
-  // methods responsible for building HTML.  Why aren't these in the class?  They don't really need to be, and by moving them outside of the exported class, they cannot be called outside the module...they become private.
-  function renderHikeList(parent, hikesList) {
+}
+
+// methods responsible for building HTML.  Why aren't these in the class?  They don't really need to be, and by moving them outside of the exported class, they cannot be called outside the module...they become private.
+function renderHikeList(parent, hikesList) {
   hikesList.forEach(hike => {
     parent.appendChild(renderOneHikeLight(hike));
   });
