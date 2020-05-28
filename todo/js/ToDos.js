@@ -1,3 +1,6 @@
+import * as ls from './ls.js';
+import * as util from './utilities.js';
+
 /************************
 * Main Class and Methods / 
 *************************/
@@ -104,9 +107,5 @@ export default class ToDos {
         }
     }
 }
-
-import * as ls from './ls.js';
-import * as util from './utilities.js';
-
 
 
