@@ -4,6 +4,7 @@ const myToDoList = new ToDos('todo');
 window.addEventListener('load', () => {
   myToDoList.showToDoList();
 });
+document.getElementById('addnew').addEventListener('click', myToDoList.addToDo());
 
 // test function, to be removed later
 function clearLS(){
