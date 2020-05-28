@@ -70,16 +70,13 @@ export default class ToDos {
 
     //toggle the checkbox on/off, change boolean of item to true/false
     completeToDo(itemID) {
-        //pull the whole array from LocalStorage
-        let allItems = this.getAllItems();
-        console.log(allItems);
-        //search the array for this one item and get its index
-        let oneTask = allItems.findIndex(task => task.id == itemID);
+        //find this individual task in the To Do List
+        let oneTask = toDoList.findIndex(task => task.id == itemID);
         console.log(oneTask);
         //swap the boolean value (true = false, false = true)
-        allItems[oneTask].completed = !allItems[oneTask].completed;
+        toDoList[oneTask].completed = !toDoList[oneTask].completed;
         //send the updated array to LocalStorage        
-        lsHelpers.updateLS(this.LSkey, allItems);
+        lsHelpers.writeToLS(this.LSkey, toDoList);
         //style the item
         markDone(itemID);
     }
