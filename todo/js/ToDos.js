@@ -22,7 +22,7 @@ export default class ToDos {
         //grab the user's input
         const taskContent = document.getElementById('new_task');
         //send to create the new item
-        utilHelpers.saveToDo(this.LSkey, taskContent);
+        saveToDo(this.LSkey, taskContent);
         //refresh the list
         this.showToDoList();
     }
@@ -104,6 +104,26 @@ export default class ToDos {
             this.addEventListeners();
         }
     }
+}
+
+function saveToDo(key, taskContent){
+    console.log('saveToDo invoked');
+    // generate an ID based on timestamp
+    let taskID = Date.now();
+
+    //create an object using the entered data (incomplete by default)
+    //(only if a value has been entered)
+    if(taskContent && taskContent.value){
+        console.log('field has a value');
+        const newTask = {id: taskID, content: taskContent.value, completed: false};
+        lsHelpers.writeToLS(key, newTask);
+        taskContent.classList.remove("error-input");
+        taskContent.value = '';
+    } else {
+        console.log('no task has been entered');
+        taskContent.classList.add("error-input");
+    }
+    taskContent.focus();
 }
 
 import * as lsHelpers from './ls.js';
