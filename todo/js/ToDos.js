@@ -1,5 +1,5 @@
-import * as ls from './ls.js';
-import * as util from './utilities.js';
+import * as lsHelpers from './ls.js';
+import * as utilHelpers from './utilities.js';
 
 /************************
 * Main Class and Methods / 
@@ -12,7 +12,7 @@ export default class ToDos {
     //grab all items in the localStorage array
     getAllItems() {
         console.log(`getAllItems invoked for ${this.LSkey}`);
-        return ls.readFromLS(this.LSkey);
+        return lsHelpers.readFromLS(this.LSkey);
     }
     //grab just one to do
     getToDo(toDoID) {
@@ -24,15 +24,15 @@ export default class ToDos {
         //grab the user's input
         const taskContent = document.getElementById('new_task');
         //send to create the new item
-        util.saveToDo(this.LSkey, taskContent);
+        utilHelpers.saveToDo(this.LSkey, taskContent);
         //refresh the list
         this.showToDoList();
     }
     //show the list in the parent function
     showToDoList(){
         console.log('showToDoList invoked');
-        util.renderToDoList(this.parentElement, this.getAllItems());
-        if(readFromLS(this.LSkey) != null){
+        utilHelpers.renderToDoList(this.parentElement, this.getAllItems());
+        if(lsHelpers.readFromLS(this.LSkey) != null){
             this.addEventListeners();
         }
     }
@@ -41,7 +41,7 @@ export default class ToDos {
         console.log('showOneToDo invoked');
         const oneTask = this.getToDo(toDoID);
         console.log(oneTask);
-        util.renderOneToDo(this.parentElement, oneTask);
+        utilHelpers.renderOneToDo(this.parentElement, oneTask);
     }
     //add event listeners to each list item
     addEventListeners() {
@@ -65,7 +65,7 @@ export default class ToDos {
                     listTabs[item].classList.remove('selected-tab');
                 }
                 event.currentTarget.classList.add('selected-tab');
-                util.filterBy(event.currentTarget.id);
+                utilHelpers.filterBy(event.currentTarget.id);
             })
         })
     }
@@ -81,9 +81,9 @@ export default class ToDos {
         //swap the boolean value (true = false, false = true)
         allItems[oneTask].completed = !allItems[oneTask].completed;
         //send the updated array to LocalStorage        
-        ls.updateLS(this.LSkey, allItems);
+        lsHelpers.updateLS(this.LSkey, allItems);
         //style the item
-        util.markDone(itemID);
+        utilHelpers.markDone(itemID);
     }
     //remove an item from the list
     removeItem(itemID) {
@@ -93,7 +93,7 @@ export default class ToDos {
             let allItems = this.getAllItems();
             let oneTask = allItems.findIndex(task => task.id == itemID);
             allItems.splice(oneTask, 1);
-            ls.updateLS(this.LSkey, allItems);
+            lsHelpers.updateLS(this.LSkey, allItems);
             this.showToDoList();
         }
     }
@@ -101,8 +101,8 @@ export default class ToDos {
         const arrFilter = this.getAllItems().filter(todo => {
             return todo.completed == category; 
         })
-        util.renderToDoList(this.parentElement, arrFilter);
-        if(readFromLS(this.LSkey) != null){
+        utilHelpers.renderToDoList(this.parentElement, arrFilter);
+        if(lsHelpers.readFromLS(this.LSkey) != null){
             this.addEventListeners();
         }
     }
