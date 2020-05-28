@@ -11,7 +11,7 @@ export function saveToDo(key, taskContent){
     if(taskContent && taskContent.value){
         console.log('field has a value');
         const newTask = {id: taskID, content: taskContent.value, completed: false};
-        writeToLS(key, newTask);
+        lsHelpers.writeToLS(key, newTask);
         taskContent.classList.remove("error-input");
         taskContent.value = '';
     } else {
@@ -36,7 +36,7 @@ export function renderToDoList(parent, toDoList) {
         emptyList.innerHTML = `You haven't added any items yet!`
         parent.appendChild(emptyList);
     }
-    updateCount(toDoList);
+    lsHelpers.updateCount(toDoList);
 }
 
 //make one item show up in HTML
