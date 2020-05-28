@@ -93,11 +93,11 @@ export default class ToDos {
         }
     }
     filterToDos(category){
-        const arrFilter = this.getAllItems().filter(todo => {
+        const arrFilter = toDoList.filter(todo => {
             return todo.completed == category; 
         })
         renderToDoList(this.parentElement, arrFilter);
-        if(lsHelpers.readFromLS(this.LSkey) != null){
+        if(toDoList != null){
             this.addEventListeners();
         }
     }
