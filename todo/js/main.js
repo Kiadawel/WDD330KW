@@ -7,7 +7,7 @@ window.addEventListener('load', () => {
 document.getElementById('addnew').addEventListener('click', myToDoList.addToDo());
 
 // test function, to be removed later
-function clearLS(){
+export function clearLS(){
     console.log('clearLS invoked');
     localStorage.clear('todo');
     console.log(localStorage.getItem('todo'));
