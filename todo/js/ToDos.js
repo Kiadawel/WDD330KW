@@ -28,7 +28,7 @@ export default class ToDos {
     //show the list in the parent function
     showToDoList(){
         console.log('showToDoList invoked');
-        renderToDoList(this.parentElement, this.getAllItems());
+        utilities.renderToDoList(this.parentElement, this.getAllItems());
         if(readFromLS(this.LSkey) != null){
             this.addEventListeners();
         }
