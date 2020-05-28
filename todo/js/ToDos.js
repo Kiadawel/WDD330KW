@@ -45,6 +45,7 @@ export default class ToDos {
     }
     //add event listeners to each list item
     addEventListeners() {
+        document.getElementById('addnew').addEventListener('click', addToDo());
         const listItems = Array.from(this.parentElement.children);
         listItems.forEach(item => {
             //checkboxes
