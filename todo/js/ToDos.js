@@ -1,5 +1,3 @@
-import * as lsHelpers from './ls.js';
-import * as utilHelpers from './utilities.js';
 
 /************************
 * Main Class and Methods / 
@@ -107,5 +105,8 @@ export default class ToDos {
         }
     }
 }
+
+import * as lsHelpers from './ls.js';
+import * as utilHelpers from './utilities.js';
 
 

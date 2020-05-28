@@ -11,7 +11,7 @@ export function saveToDo(key, taskContent){
     if(taskContent && taskContent.value){
         console.log('field has a value');
         const newTask = {id: taskID, content: taskContent.value, completed: false};
-        lsHelpers.writeToLS(key, newTask);
+        writeToLS(key, newTask);
         taskContent.classList.remove("error-input");
         taskContent.value = '';
     } else {
