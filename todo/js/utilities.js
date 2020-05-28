@@ -36,7 +36,7 @@ export function renderToDoList(parent, toDoList) {
         emptyList.innerHTML = `You haven't added any items yet!`
         parent.appendChild(emptyList);
     }
-    lsHelpers.updateCount(toDoList);
+    updateCount(toDoList);
 }
 
 //make one item show up in HTML
