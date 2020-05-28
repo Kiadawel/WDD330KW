@@ -1,7 +1,7 @@
  /*********************
 * Utility Functions  /
 **********************/
-function saveToDo(key, taskContent){
+export function saveToDo(key, taskContent){
     console.log('saveToDo invoked');
     // generate an ID based on timestamp
     let taskID = Date.now();
@@ -22,7 +22,7 @@ function saveToDo(key, taskContent){
 }
 
 //make the list show up in HTML
-function renderToDoList(parent, toDoList) {
+export function renderToDoList(parent, toDoList) {
     console.log('renderToDoList invoked');
     console.log(toDoList);
     parent.innerHTML = '';
@@ -40,7 +40,7 @@ function renderToDoList(parent, toDoList) {
 }
 
 //make one item show up in HTML
-function renderOneToDo(task) {
+export function renderOneToDo(task) {
     console.log('renderOneToDo invoked');
     const oneTask = document.createElement('li');
     task.completed ? oneTask.classList.toggle('completed') : '';
@@ -52,13 +52,13 @@ function renderOneToDo(task) {
 }
 
 //make a completed item style itself finished
-function markDone(itemID){
+export function markDone(itemID){
     let taskContainer = document.getElementById(itemID).parentElement;
     taskContainer.classList.toggle('completed');
 }
 
 //update the counter at the bottom
-function updateCount(list){
+export function updateCount(list){
     console.log('updateCount invoked');
     const taskCounter = document.getElementById('task-counter');
     if(list != null) {
@@ -69,7 +69,7 @@ function updateCount(list){
 }
 
 //filter list by active, completed, or all
-function filterBy(category){
+export function filterBy(category){
     console.log('filterBy invoked');
     switch(category){
         case 'filter-all':
