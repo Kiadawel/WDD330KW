@@ -3,12 +3,8 @@ import ToDos from './ToDos.js';
 const myToDoList = new ToDos('todo');
 window.addEventListener('load', () => {
   myToDoList.showToDoList();
+  myToDoList.addTabListeners();
 });
-
-// test function, to be removed later
-export function clearLS(){
-    console.log('clearLS invoked');
-    localStorage.clear('todo');
-    console.log(localStorage.getItem('todo'));
-    myToDoList.showToDoList();
-}
+document.getElementById('addnew').addEventListener('click', () => {
+  myToDoList.addToDo();
+});

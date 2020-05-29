@@ -2,7 +2,7 @@
 /************************
 * Main Class and Methods / 
 *************************/
-const toDoList = null;
+let toDoList = null; 
 
 export default class ToDos {
     constructor(elementID) {
@@ -18,7 +18,7 @@ export default class ToDos {
     //grab just one to do
     getOneToDo(toDoID) {
         console.log(`getOneToDo invoked with ${toDoID}`);
-        return getToDos().find(task => task.id == toDoID);
+        return getToDos(this.LSkey).find(task => task.id == toDoID);
     }
     //add an item to the list
     addToDo(){
@@ -32,6 +32,7 @@ export default class ToDos {
     //show the list in the parent function
     showToDoList(){
         console.log('showToDoList invoked');
+        getToDos(this.LSkey);
         renderToDoList(this.parentElement, toDoList);
     }
     //show one ToDo item
@@ -41,33 +42,6 @@ export default class ToDos {
         console.log(oneTask);
         renderOneToDo(this.parentElement, oneTask);
     }
-    //add event listeners to each list item
-    addEventListeners() {
-        const listItems = Array.from(this.parentElement.children);
-        listItems.forEach(item => {
-            //checkboxes
-            item.children[0].addEventListener('click', event => {
-                this.completeToDo(event.currentTarget.id);
-            })
-            //task removal buttons
-            item.children[2].addEventListener('click', event => {
-                this.removeItem(event.currentTarget.parentElement.children[0].id);
-            })
-        })
-        //filter tabs
-        const listTabs = Array.from(document.querySelectorAll('.bottom-tab'));
-        listTabs.forEach(tab => {
-            tab.addEventListener('click', event => {
-                for (let item in listTabs){
-                    console.log(item);
-                    listTabs[item].classList.remove('selected-tab');
-                }
-                event.currentTarget.classList.add('selected-tab');
-                filterBy(event.currentTarget.id);
-            })
-        })
-    }
-
     //toggle the checkbox on/off, change boolean of item to true/false
     completeToDo(itemID) {
         //find this individual task in the To Do List
@@ -85,34 +59,59 @@ export default class ToDos {
         console.log('removeItem invoked');
         const confirmRemove = confirm(`Remove this task?`);
         if (confirmRemove){
-            let allItems = this.getAllItems();
-            let oneTask = allItems.findIndex(task => task.id == itemID);
-            allItems.splice(oneTask, 1);
-            lsHelpers.updateLS(this.LSkey, allItems);
+            let oneTask = toDoList.findIndex(task => task.id == itemID);
+            toDoList.splice(oneTask, 1);
+            lsHelpers.writeToLS(this.LSkey, toDoList);
             this.showToDoList();
         }
     }
+    addTabListeners() {
+        //filter tabs
+        const listTabs = Array.from(document.querySelectorAll('.bottom-tab'));
+        listTabs.forEach(tab => {
+            tab.addEventListener('click', event => {
+                for (let item in listTabs){
+                    listTabs[item].classList.remove('selected-tab');
+                }
+                event.currentTarget.classList.add('selected-tab');
+                this.filterToDos(event.currentTarget.id);
+            })
+        })    
+    }
     filterToDos(category){
-        const arrFilter = toDoList.filter(todo => {
-            return todo.completed == category; 
+        category = filterBy(category);
+        const arrFilter = toDoList.filter(task => {
+            if (category != null){
+                return task.completed == category;
+            }
+            else {
+                return task;
+            }
         })
         renderToDoList(this.parentElement, arrFilter);
-        if(toDoList != null){
+        /*if(toDoList != null){
             this.addEventListeners();
-        }
+        }*/
     }
 }
 
 function getToDos(key){
+    console.log(`getToDos invoked with ${key}`);
     if (toDoList == null){
         toDoList = [];
-        toDoList.push(lsHelpers.readFromLS(key));
+        let arrLocal = lsHelpers.readFromLS(key);
+        console.log(arrLocal);
+        if(arrLocal != null){
+            arrLocal.forEach(task => toDoList.push(task));
+        }
     }
+    console.log(toDoList);
     return toDoList;
 }
 
 function saveToDo(key, taskContent){
     console.log('saveToDo invoked');
+    let taskArr = getToDos(key);
     // generate an ID based on timestamp
     let taskID = Date.now();
 
@@ -121,8 +120,8 @@ function saveToDo(key, taskContent){
     if(taskContent && taskContent.value){
         console.log('field has a value');
         const newTask = {id: taskID, content: taskContent.value, completed: false};
-        toDoList.push(newTask);
-        lsHelpers.updateLS(key,toDoList);
+        taskArr.push(newTask);
+        lsHelpers.writeToLS(key,taskArr);
         taskContent.classList.remove("error-input");
         taskContent.value = '';
     } else {
@@ -133,21 +132,21 @@ function saveToDo(key, taskContent){
 }
 
 //make the list show up in HTML
-function renderToDoList(parent, toDoList) {
+function renderToDoList(parent, thisList) {
     console.log('renderToDoList invoked');
-    console.log(toDoList);
+    console.log(thisList);
     parent.innerHTML = '';
-    if(toDoList != null){
-    toDoList.forEach(taskObject => {
+    if(thisList != null && thisList.length > 0){
+    thisList.forEach(taskObject => {
         //console.log(taskObject);
         parent.appendChild(renderOneToDo(taskObject));
     })
     }else {
         const emptyList = document.createElement('li');
-        emptyList.innerHTML = `You haven't added any items yet!`
+        emptyList.innerHTML = `No Tasks Found`
         parent.appendChild(emptyList);
     }
-    updateCount(toDoList);
+    updateCount(thisList);
 }
 
 //make one item show up in HTML
@@ -183,15 +182,17 @@ function markDone(itemID){
 function filterBy(category){
     console.log('filterBy invoked');
     switch(category){
-        case 'filter-all':
-            myToDoList.showToDoList(true || false);
-            break;
         case 'filter-active':
-            myToDoList.filterToDos(false);
+            category = false;
             break;
         case 'filter-completed':
-            myToDoList.filterToDos(true);
+            category = true;
+            break;
+        case 'filter-all':
+            category = null;
+            break;
     }
+    return category;
 }
 
 
