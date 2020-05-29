@@ -5,6 +5,14 @@ window.addEventListener('load', () => {
   myToDoList.showToDoList();
   myToDoList.addTabListeners();
 });
-document.getElementById('addnew').addEventListener('click', () => {
+const addNew = document.getElementById('addnew');
+addNew.addEventListener('click', () => {
+  myToDoList.addToDo();
+});
+addNew.addEventListener('keyup', () => {
+  if(event.keyCode === 13) {
+    event.preventDefault();
+    addNew.click();
+  }
   myToDoList.addToDo();
 });
