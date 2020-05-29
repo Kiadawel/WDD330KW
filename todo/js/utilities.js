@@ -10,12 +10,12 @@ export function qs(selector){
 
 export function onTouch(elementSelector, callback){
     console.log(`onTouch initialized`);
-    const lstnItem = qs(elementSelector.id);
-    
-    console.log(`listenerItem is ${lstnItem}`);
-    lstnItem.addEventListener('touchend', function(event) {
+    const listenItem = qs(elementSelector);
+
+    console.log(`listenItem is ${listenItem}`);
+    listenItem.addEventListener('touchend', function(event) {
         event.preventDefault();
         event.currentTarget.click();
     }, false);
-    lstnItem.addEventListener('click', callback, false);
+    listenItem.addEventListener('click', () => {console.log(callback);}, false);
 }

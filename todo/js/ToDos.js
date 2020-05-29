@@ -15,11 +15,6 @@ export default class ToDos {
         console.log(`getAllItems invoked for ${this.LSkey}`);
         return lsHelpers.readFromLS(this.LSkey);
     }
-    //grab just one to do
-    getOneToDo(toDoID) {
-        console.log(`getOneToDo invoked with ${toDoID}`);
-        return getToDos(this.LSkey).find(task => task.id == toDoID);
-    }
     //add an item to the list
     addToDo(){
         //grab the user's input
@@ -34,13 +29,24 @@ export default class ToDos {
         console.log('showToDoList invoked');
         getToDos(this.LSkey);
         renderToDoList(this.parentElement, toDoList);
+        if(toDoList != null){
+            this.addEventListeners();
+        }
     }
-    //show one ToDo item
-    showOneToDo(toDoID){
-        console.log('showOneToDo invoked');
-        const oneTask = this.getOneToDo(toDoID);
-        console.log(oneTask);
-        renderOneToDo(this.parentElement, oneTask);
+    addEventListeners() {
+        const listItems = Array.from(this.parentElement.children);
+        console.log(listItems);
+        if(listItems.length > 0 && listItems[0].children[0]){
+        listItems.forEach(item => {
+            //checkboxes
+            item.children[0].addEventListener('click', event => {
+                this.completeToDo(event.currentTarget.id);
+            })
+            //task removal buttons
+            item.children[2].addEventListener('click', event => {
+                this.removeItem(event.currentTarget.parentElement.children[0].id);
+            })
+        })}
     }
     //toggle the checkbox on/off, change boolean of item to true/false
     completeToDo(itemID) {
@@ -89,9 +95,7 @@ export default class ToDos {
             }
         })
         renderToDoList(this.parentElement, arrFilter);
-        /*if(toDoList != null){
-            this.addEventListeners();
-        }*/
+        this.addEventListeners();
     }
 }
 
