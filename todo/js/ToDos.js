@@ -9,12 +9,6 @@ export default class ToDos {
         this.parentElement = document.getElementById(elementID);
         this.LSkey = this.parentElement.id;
     }
-
-    //grab all items in the localStorage array
-    getAllItems() {
-        console.log(`getAllItems invoked for ${this.LSkey}`);
-        return lsHelpers.readFromLS(this.LSkey);
-    }
     //add an item to the list
     addToDo(){
         //grab the user's input
@@ -63,13 +57,10 @@ export default class ToDos {
     //remove an item from the list
     removeItem(itemID) {
         console.log('removeItem invoked');
-        const confirmRemove = confirm(`Remove this task?`);
-        if (confirmRemove){
-            let oneTask = toDoList.findIndex(task => task.id == itemID);
-            toDoList.splice(oneTask, 1);
-            lsHelpers.writeToLS(this.LSkey, toDoList);
-            this.showToDoList();
-        }
+        let oneTask = toDoList.findIndex(task => task.id == itemID);
+        toDoList.splice(oneTask, 1);
+        lsHelpers.writeToLS(this.LSkey, toDoList);
+        this.showToDoList();
     }
     addTabListeners() {
         //filter tabs
