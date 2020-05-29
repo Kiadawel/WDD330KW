@@ -9,7 +9,8 @@ const addNew = document.getElementById('addnew');
 addNew.addEventListener('click', () => {
   myToDoList.addToDo();
 });
-addNew.addEventListener('keyup', () => {
+addNew.addEventListener('keyup', function(event) {
+  console.log('enter event fired');
   if(event.keyCode === 13) {
     event.preventDefault();
     addNew.click();
