@@ -15,5 +15,4 @@ inputField.addEventListener('keyup', function(event) {
     event.preventDefault();
     addNew.click();
   }
-  myToDoList.addToDo();
 });
