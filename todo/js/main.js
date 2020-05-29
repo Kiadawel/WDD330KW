@@ -5,11 +5,12 @@ window.addEventListener('load', () => {
   myToDoList.showToDoList();
   myToDoList.addTabListeners();
 });
+const inputField = document.getElementById('new_task');
 const addNew = document.getElementById('addnew');
 addNew.addEventListener('click', () => {
   myToDoList.addToDo();
 });
-addNew.addEventListener('keyup', function(event) {
+inputField.addEventListener('keyup', function(event) {
   console.log('enter event fired');
   if(event.keyCode === 13) {
     event.preventDefault();
