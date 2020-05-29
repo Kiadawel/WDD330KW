@@ -11,7 +11,6 @@ addNew.addEventListener('click', () => {
   myToDoList.addToDo();
 });
 inputField.addEventListener('keyup', function(event) {
-  console.log('enter event fired');
   if(event.keyCode === 13) {
     event.preventDefault();
     addNew.click();
