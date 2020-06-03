@@ -80,7 +80,8 @@ export default class Comments {
     }
     addSubmitListener(commentName) {
         console.log(`addSubmitListener initialized with ${commentName}`)
-        let userComment = document.getElementById('user_comment').textContent;
+        let userComment = document.getElementById('user_comment').value;
+        console.log(userComment);
         //when submit comment button is pressed...
         document.getElementById('comment_submit').onclick = () => {
             //grab the standard comment model with these parameters
