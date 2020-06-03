@@ -88,6 +88,7 @@ export default class Comments {
         }
     }
     showCommentList(category = null) {
+        console.log('showCommentList initialized');
         const parent = document.getElementById('comments_div');
         //if there are no comments yet, add the comment form
         if(parent.innerHTML === '') {
@@ -106,6 +107,7 @@ export default class Comments {
         if (commentArr === null) {
             commentArr = ['No comments have been added yet'];
         }
+        console.log(commentArr);
         renderCommentList(parent.lastChild,commentArr);
     }
 }
