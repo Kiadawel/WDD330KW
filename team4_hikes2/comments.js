@@ -108,9 +108,9 @@ export default class Comments {
         }
         //get the comment array from the model
         let commentArr = this.model.getComments(category);
-        /*if (commentArr === null) {
+        if (commentArr === null) {
             commentArr = ['No comments have been added yet'];
-        }*/
+        }
         console.log(commentArr);
         renderCommentList(parent.lastChild,commentArr);
     }
