@@ -102,6 +102,6 @@ export default class Comments {
         if (commentArr === null) {
             commentArr = ['No comments have been added yet'];
         }
-        renderCommentList(document.getElementById('commentList'),commentArr);
+        renderCommentList(commentForm.lastChild,commentArr);
     }
 }
