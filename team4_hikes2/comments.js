@@ -32,6 +32,7 @@ class commentModel {
         }
     }
     addComment(postName, userInput){
+        console.log(`addComment initialized`);
         //method to create a new comment to be added to the array
         //create a new comment object
         const newComment = {
@@ -78,6 +79,7 @@ export default class Comments {
         this.model = new commentModel(this.type);
     }
     addSubmitListener(commentName) {
+        console.log(`addSubmitListener initialized with ${commentName}`)
         let userComment = document.getElementById('user_comment').value;
         //when submit comment button is pressed...
         document.getElementById('comment_submit').ontouchend = () => {
