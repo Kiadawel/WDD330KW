@@ -1,10 +1,10 @@
-const allComments = [
-    {
-        name: hikeName,
-        date: new Date(),
-        content: userComment
-    }
-];
+//localStorage helpers
+function writeToLS(key, data) {
+    window.localStorage.setItem(key, JSON.stringify(data));
+}
+function readFromLS(key) {
+    return JSON.parse(window.localStorage.getItem(key));
+}
 
 class commentModel {
     //methods and properties shared by all kinds of comments
@@ -42,15 +42,13 @@ class commentModel {
 }
 
 //create a standard UI for the comment form
-const commentForm = 
-    `<div>
-        <h3>Comments</h3>
-        <ul class="comment_list" id="commentList"></ul>
-    </div>
+const commentForm = `
+    <h3>Comments</h3>
     <div class="comment_form">
-        <h3>Add a Comment</h3>
+        <h4>Add a Comment</h4>
         <textarea id="user_comment" placeholder="Enter your comments here"><br />
         <button id="comment_submit">Add Comment</button>
+        <ul class="comment_list" id="commentList"></ul>
     </div>`;
 
 function renderCommentList(parent, commentArray){
@@ -106,12 +104,4 @@ export default class Comments {
         }
         renderCommentList(document.getElementById('commentList'),commentArr);
     }
-}
-
-//localStorage helpers
-function writeToLS(key, data) {
-    window.localStorage.setItem(key, JSON.stringify(data));
-}
-function readFromLS(key) {
-    return JSON.parse(window.localStorage.getItem(key));
 }
