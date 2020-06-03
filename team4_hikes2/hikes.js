@@ -95,9 +95,6 @@ function renderHikeList(parent, hikesList) {
   hikesList.forEach(hike => {
     parent.appendChild(renderOneHikeLight(hike));
   });
-  const commentsAll = document.createElement('div');
-  commentsAll.setAttribute('id','comments_div');
-  parent.after(commentsAll);
   hikeComments.showCommentList();
 }
 
