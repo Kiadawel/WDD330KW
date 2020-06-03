@@ -28,7 +28,7 @@ class commentModel {
             return this.comments;
         } else {
             console.log(`category ${category}, filtering ${this.comments}`)
-            this.comments.filter(item => item.name == category);
+            return this.comments.filter(item => item.name == category);
         }
     }
     addComment(postName, userInput){
