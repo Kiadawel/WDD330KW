@@ -46,7 +46,8 @@ const commentForm = `
     <h3>Comments</h3>
     <div class="comment_form">
         <h4>Add a Comment</h4>
-        <textarea id="user_comment" placeholder="Enter your comments here"><br />
+        <textarea id="user_comment" placeholder="Enter your comments here"></textarea>
+        <br />
         <button id="comment_submit">Add Comment</button>
     </div>
     <ul class="comment_list" id="commentList"></ul>`;
