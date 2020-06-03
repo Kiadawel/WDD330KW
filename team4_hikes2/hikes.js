@@ -141,7 +141,6 @@ function renderOneHikeFull(hike) {
       <h3>Directions</h3>
       <p>${hike.directions}</p>
     </div>
-    <div id="comments_div"></div>
   </div>`;
   return item; 
 }
