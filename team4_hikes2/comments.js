@@ -21,6 +21,7 @@ class commentModel {
     }
     getComments(category = null){
         console.log('model getComments initialized');
+        console.log(this.comments);
         //method to get whichever comment list is requested
         if (category === null){
             console.log(`category null, ${this.comments}`)
@@ -57,6 +58,7 @@ const commentForm = `
     <ul class="comment_list" id="commentList"></ul>`;
 
 function renderCommentList(parent, commentArray){
+    console.log('renderCommentList initialized');
     //reset the parent element
     parent.innerHTML = '';
     //add an item for each comment
@@ -104,9 +106,9 @@ export default class Comments {
         }
         //get the comment array from the model
         let commentArr = this.model.getComments(category);
-        if (commentArr === null) {
+        /*if (commentArr === null) {
             commentArr = ['No comments have been added yet'];
-        }
+        }*/
         console.log(commentArr);
         renderCommentList(parent.lastChild,commentArr);
     }
