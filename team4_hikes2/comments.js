@@ -3,6 +3,7 @@ function writeToLS(key, data) {
     window.localStorage.setItem(key, JSON.stringify(data));
 }
 function readFromLS(key) {
+    console.log('readFromLS initialized');
     return JSON.parse(window.localStorage.getItem(key));
 }
 
