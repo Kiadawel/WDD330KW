@@ -67,7 +67,7 @@ function renderCommentList(parent, commentArray){
         let item = document.createElement('li');
         item.innerHTML = `
             ${commObject.name},${commObject.date}: 
-            ${commObject.content}`; 
+            ${commObject.comment}`; 
         parent.appendChild(item);
     });
 }
