@@ -94,6 +94,8 @@ function renderHikeList(parent, hikesList) {
   hikesList.forEach(hike => {
     parent.appendChild(renderOneHikeLight(hike));
   });
+  const commentsAll = document.createElement('li');
+  parent.appendChild(commentsAll);
   hikeComments.showCommentList();
 }
 
@@ -112,7 +114,6 @@ function renderOneHikeLight(hike) {
               <h3>Difficulty</h3>
               <p>${hike.difficulty}</p>
           </div>
-          <div id="comments_div"></div>
   </div>`;
   return item;
 }
@@ -138,6 +139,7 @@ function renderOneHikeFull(hike) {
       <h3>Directions</h3>
       <p>${hike.directions}</p>
     </div>
+    <div id="comments_div"></div>
   </div>`;
   return item; 
 }
