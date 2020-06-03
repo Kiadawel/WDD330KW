@@ -48,8 +48,8 @@ const commentForm = `
         <h4>Add a Comment</h4>
         <textarea id="user_comment" placeholder="Enter your comments here"><br />
         <button id="comment_submit">Add Comment</button>
-        <ul class="comment_list" id="commentList"></ul>
-    </div>`;
+    </div>
+    <ul class="comment_list" id="commentList"></ul>`;
 
 function renderCommentList(parent, commentArray){
     //reset the parent element
@@ -83,7 +83,7 @@ export default class Comments {
         }
     }
     showCommentList(category = null) {
-        const parent = document.getElementById('commentElementID');
+        const parent = document.getElementById('comments_div');
         //if there are no comments yet, add the comment form
         if(parent.innerHTML === '') {
             parent.innerHTML = commentForm;
@@ -101,6 +101,6 @@ export default class Comments {
         if (commentArr === null) {
             commentArr = ['No comments have been added yet'];
         }
-        renderCommentList(commentForm.lastChild,commentArr);
+        renderCommentList(parent.lastChild,commentArr);
     }
 }
