@@ -86,10 +86,10 @@ export default class Comments {
         document.getElementById('comment_submit').onclick = () => {
             //grab the standard comment model with these parameters
             this.model.addComment(commentName, userComment);
-            //then reset the field to empty
-            userComment = '';
             //and show the comment list
             this.showCommentList(commentName);
+            //then reset the field to empty
+            userComment = '';
         }
     }
     showCommentList(category = null) {
