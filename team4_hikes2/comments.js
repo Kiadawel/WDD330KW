@@ -70,7 +70,6 @@ export default class Comments {
         this.commentElementID = commentElementID;
         this.model = new commentModel(this.type);
     }
-
     addSubmitListener(commentName) {
         let userComment = document.getElementById('user_comment').value;
         //when submit comment button is pressed...

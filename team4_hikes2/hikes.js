@@ -94,7 +94,7 @@ function renderHikeList(parent, hikesList) {
   hikesList.forEach(hike => {
     parent.appendChild(renderOneHikeLight(hike));
   });
-  hikeComments.renderCommentList();
+  hikeComments.showCommentList();
 }
 
 function renderOneHikeLight(hike) {
