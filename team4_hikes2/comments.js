@@ -82,7 +82,7 @@ export default class Comments {
         console.log(`addSubmitListener initialized with ${commentName}`)
         let userComment = document.getElementById('user_comment').value;
         //when submit comment button is pressed...
-        document.getElementById('comment_submit').ontouchend = () => {
+        document.getElementById('comment_submit').onclick = () => {
             //grab the standard comment model with these parameters
             this.model.addComment(commentName, userComment);
             //then reset the field to empty
