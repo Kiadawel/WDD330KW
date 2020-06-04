@@ -21,7 +21,6 @@ class commentModel {
     }
     getComments(category = null){
         console.log('model getComments initialized');
-        console.log(this.comments);
         //method to get whichever comment list is requested
         if (category === null){
             console.log(`category null, ${this.comments}`)
@@ -58,6 +57,19 @@ const commentForm = `
     </div>
     <ul class="comment_list" id="commentList"></ul>`;
 
+function formatDate(dateObject){
+    dateObject = new Date(dateObject);
+    const year = dateObject.getFullYear();
+    const date = dateObject.getDate();
+    const monthsArr = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'];
+    const month = monthsArr[dateObject.getMonth()];
+    const daysArr = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const day = daysArr[dateObject.getDay()];
+    const time = `${dateObject.getHours()}:${dateObject.getMinutes()}`;
+    const dateFormatted = `${day}, ${month} ${date}, ${year} ${time}`;
+    return dateFormatted;
+}
+
 function renderCommentList(parent, commentArray){
     console.log('renderCommentList initialized');
     //reset the parent element
@@ -66,8 +78,8 @@ function renderCommentList(parent, commentArray){
     commentArray.forEach(commObject => {
         let item = document.createElement('li');
         item.innerHTML = `
-            ${commObject.name},${commObject.date}: 
-            ${commObject.comment}`; 
+            <h5>${formatDate(commObject.date)} &mdash; ${commObject.name}</h5>
+            <p class="comm-notes">${commObject.comment}</p>`; 
         parent.appendChild(item);
     });
 }
@@ -80,16 +92,16 @@ export default class Comments {
     }
     addSubmitListener(commentName) {
         console.log(`addSubmitListener initialized with ${commentName}`)
-        let userComment = document.getElementById('user_comment').value;
+        let userComment = document.getElementById('user_comment');
         console.log(userComment);
         //when submit comment button is pressed...
         document.getElementById('comment_submit').onclick = () => {
             //grab the standard comment model with these parameters
-            this.model.addComment(commentName, userComment);
+            this.model.addComment(commentName, userComment.value);
+            //then reset the field to empty
+            userComment.value = '';
             //and show the comment list
             this.showCommentList(commentName);
-            //then reset the field to empty
-            userComment = '';
         }
     }
     showCommentList(category = null) {
@@ -109,9 +121,6 @@ export default class Comments {
         }
         //get the comment array from the model
         let commentArr = this.model.getComments(category);
-        if (commentArr === null) {
-            commentArr = ['No comments have been added yet'];
-        }
         console.log(commentArr);
         renderCommentList(parent.lastChild,commentArr);
     }
