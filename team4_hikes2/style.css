@@ -60,3 +60,19 @@ ul {
 .hidden {
     display:none;
 }
+.commentsbox {
+    margin: 0 auto;
+    padding: 0 1em;
+}
+.commentsbox h3 {
+    width: 100%;
+    text-align: center;
+}
+.commentsbox h5 {
+    color: green;
+}
+.commentsbox li {
+    border: 1px dashed lightgreen;
+    margin: .5em 0;
+    padding: 0 1em;
+}

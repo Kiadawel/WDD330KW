@@ -23,10 +23,10 @@ class commentModel {
         console.log('model getComments initialized');
         //method to get whichever comment list is requested
         if (category === null){
-            console.log(`category null, ${this.comments}`)
+            console.log(`category null`)
             return this.comments;
         } else {
-            console.log(`category ${category}, filtering ${this.comments}`)
+            console.log(`category ${category}`)
             return this.comments.filter(item => item.name == category);
         }
     }
