@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+    <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Week 5 | WDD330 | Kimi Weldon</title>
+            <meta name="description" content="Assignments, samples and course projects for Kimi Weldon, for WDD330 at BYU-Idaho.">
+            <meta name="author" content="Kimi Weldon">
+            <link rel="stylesheet" href="css/main-style.css">
+    </head>
+    
+    <body>
+        <div class="page_wrap">
+            <header>
+                <h1>Week 7</h1>
+                <p>Notes and questions for Week 7. <br />
+                    <a href="index.html">&#60; Back to Portfolio</a></p>
+            </header>
+            <main>
+                <h2>Questions</h2>
+                <section>
+                    <ul>
+                        <li>
+                            Do people actually remember all of this or does every programmer sit with a textbook and Google nearby to refresh their memory of all the different kinds of functions there can be??
+                        </li>
+                        <li>Cannot wrap my head around currying. Any practical examples of where this would be useful?</li>
+                    </ul>
+                </section>
+                
+                <h2>Notes</h2>
+                <a id="hider" class="hider" onclick="showNotes()">SHOW &#62;</a>
+                <section id="notes" class="hideme">
+                    <h3>Javascript: Novice to Ninja</h3>
+                    <h4>Chapter 11: Further Functions</h4>
+                    <ul>
+                        <li>Functions have properties and methods (built-in and addable) -- functionName.length returns the number of parameters the function is looking for.</li>
+                        <li>
+                            call() method: Set the value of "this" inside a function to an object; this then becomes the first accepted argument, and you can call(arg) with the argument. Ex:
+                            <ul>
+                                <li>function sayHello() { return `Hello, my name is ${ this.name }`}; -- this would then accept any object as a parameter, so long as it had a "name" value.</li>
+                                <li>const clark = {name: 'Clark'};</li>
+                                <li>sayHello.call(clark) would return 'Hello, my name is Clark'</li>
+                                <li>If the function requires other parameters, "this" must be the first one in "call" function, or must be called with "null" instead. Ex: square.call(null, 4)</li>
+                            </ul>
+                        </li>
+                        <li>Add a custom property to any function just by adding it. Ex: functionName.description = 'What the function does';</li>
+                        <li>Memoization (not a typo) -- allows you to set a parameter to cache the results of a "heavy" function to avoid running it again with the same value; set functionName.cache after the function runs and return that; then only run that function again when the request is for a different parameter. The cache can be an object with request: result pairs so that all previously-called requests are in the cache.</li>
+                        <li>IIFE (iffy; Immediately Invoked Function Expression) -- anonymous function that runs as soon as it is defined. Put the whole thing inside parentheses. Ex: (function() { code here};)();</li>
+                        <li>IIFE can also be used to keep a block of code completely private by locking down the scope of the variables to that function only. (ES6 lets you do this with just curly brackets, without all the excess punctuation)</li>
+                        <li>Functions can redefine themselves. This is useful for running a piece of the function only once, and then the rest of it every successive time. (Be careful not to lost properties by doing this)</li>
+                        <li>Init-time branching -- allows you to run different code based on what is supported. </li>
+                        <li>Recursive functions -- functions that invoke themselves until a certain condition is met. </li>
+                        <li>Callback hell -- when more than one callback is used within a single function, resulting in a tangled mess of nested code</li>
+                        <li>Promises -- represent the future result of an operation to be done later. This simplifies the callback process somewhat.
+                            <ul>
+                                <li>Promise is created; result is pending</li>
+                                <li>While operation is taking place, promise is unsettled</li>
+                                <li>Operation is completed, promise is settled with one of two results: Resolved (completed successfully) or Rejected (didn't work as expected, or was unsuccessful, or threw an error)</li>
+                            </ul>
+                        </li>
+                        <li>Promises can be used instead of callbacks to deal with multiple asynchronous actions in sequence.</li>
+                        <li>Functions that return other functions are called "higher order functions" and are completely beyond my comprehension at this juncture.</li>
+                        <li>A closure keeps a variable reference available outside of its function</li>
+                        <li>Generator functions: Created with an * after the "function" keyword. Returns an iterator that provides a next() method to continue in sequence.</li>
+                        <li>Functional programming: breaking processes down into steps that can be applied as a series of functions.</li>
+                        <li>Pure functions:
+                            <ul>
+                                <li>Don't rely on the state of the code they are called from</li>
+                                <li>Have no side effects</li>
+                                <li>Always give the same result when given the same arguments</li>
+                            </ul>
+                        </li>
+                        <li>Currying or partial application: Applying one argument at a time to a function, returning a new function until all arguments have been used up.</li>
+                    </ul>
+
+                    <h4>Chapter 13: AJAX</h4>
+                    <ul>
+                        <li>Ajax -- a technique for sending/receiving data asynchronously in the background; allows apps to update and refresh data without refreshing the page.</li>
+                        <li>Ajax data can be sent in many forms, but is usually JSON.</li>
+                        <li>Can be used for communicating with external APIs</li>
+                        <li>Can make requests using the Fetch API</li>
+                        <li>Response interface: allows you to control the response received from a request, or create your own response objects.</li>
+                        <li>Request interface: allows you to create a request object with information like URL and headers</li>
+                        <li>Headers interface lets you create HTTP headers that can be added to either of the above objects</li>
+                        <li>Requests can use a GET request, or send data with a POST request</li>
+                        <li>FormData interface makes it easier to send data from forms.</li>
+                    </ul>
+
+                    <h4>Articles</h4>
+                    <ul>
+                        <li>
+                            <a href="https://www.sitepoint.com/three-little-known-development-console-api-methods/" target="_blank">More Console Functions</a>
+                        </li>
+                    </ul>
+                </section>
+            </main>
+
+            <footer>
+                &copy; 2020 Kimberly Weldon. All rights reserved.
+            </footer>
+        
+            <script src="js/pagefunctions.js"></script>
+            <script src="js/week7.js"></script>
+        </div>
+    </body>
+</html>
