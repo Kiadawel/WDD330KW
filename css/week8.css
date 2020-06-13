@@ -1,0 +1,202 @@
+/**********************************************
+/*         TRANSITIONS & TRANSLATION          *
+/*********************************************/
+
+.rectangle {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    background-color: #e8857c;
+    vertical-align: middle;
+    text-align: center;
+    margin: .5em;
+    padding: 0;
+}
+.ex-translate {
+    transform: translateY(30px);
+}
+.ex-rotate {
+    transform: rotate(45deg);
+}
+.ex-scale {
+    transform: scale(.75);
+}
+.ex-skew {
+    transform: skew(20deg, 20deg);
+}
+
+.oval {
+    display: inline-block;
+    width: 100px; 
+    height: 30px;
+    border-radius: 50%;
+    background-color: #e8857c;
+    vertical-align: middle;
+    text-align: center;
+}
+.ex-or-center {
+    transform-origin: center;
+    transform: rotate(45deg);
+}
+.ex-or-moved {
+    transform-origin: 80% 20%;
+    transform: rotate(45deg);
+}
+
+.ex-hover {
+    display: inline-block;
+    background-color: #e8857c;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}
+.ex-hover:hover {
+    background-color: #d7f9f1;
+}
+.ex-ease-in {
+    transition: all ease-in 1s;
+}
+.ex-ease-out {
+    transition: all ease-out 1s;
+}
+.ex-ease-in-out {
+    transition: all ease-in-out 1s;
+}
+.ex-delay {
+    transition-delay: 1s;
+}
+
+/**********************************************
+/*           ANIMATION & KEYFRAMES            *
+/*********************************************/
+@keyframes orbit {
+    0%, 5%, 100% {
+      transform: translate 0, 0;
+    }
+    25%, 30% {
+      transform: translate(300%, 0%);
+    }
+    50%, 55% {
+      transform: translate(300%, 300%);
+    }
+    75%, 80% {
+      transform: translate(0%, 300%);
+    }
+  }
+  @keyframes morph {
+    0%, 25% {
+      border-radius: 50%;
+      background-color: #88a0a8;
+    }
+    50% {
+      border-radius: 0%;
+      background-color: #e8857c;
+      transform: rotate(0deg);
+    }
+    75% {
+      border-radius: 0%;
+      background-color: #e8857c;
+      transform: rotate(90deg);
+    }
+    100% {
+      border-radius: 50%;
+      background-color: #88a0a8;
+      transform: rotate(90deg);
+    }
+  }
+  @keyframes shift-left {
+    0%, 75%, 100% {
+      transform: translate(0%, 0%);
+    }
+    25%, 50% {
+      transform: translate(-50%, 0%);
+    }
+  }
+  @keyframes shift-right {
+    0%, 75%, 100% {
+      transform: translate(0%, 0%);
+    }
+    25%, 50% {
+      transform: translate(50%, 0%);
+    }
+  }
+  @keyframes beat {
+    0%, 10%, 20%, 100% {
+      transform: scale(1);
+    }
+    5%, 15% {
+      transform: scale(1.3);
+    }
+  }
+  
+  .container {
+    box-sizing: border-box;
+    width: 150px;
+    height: 150px;
+    background-color: #d7f9f1;
+    padding: 5px;
+  }
+  .container-box2, .container-box3, .container-box4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .orbit-circle {
+    height: 35px;
+    width: 35px;
+    background-color: #88a0a8;
+    border-radius: 50%;
+    animation: orbit 3s linear infinite;
+  }
+  
+  .morph-circle {
+    height: 35px;
+    width: 35px;
+    background-color: #88a0a8;
+    border-radius: 50%;
+    animation: morph 3s linear infinite;
+  }
+  
+  .split-circle {
+    height: 35px;
+    width: 35px;
+    display: flex;
+    flex-flow: row nowrap;
+  }
+  .split-circle::before, .split-circle::after {
+    display: block;
+    top: 0;
+    content: '';
+    background-color: #88a0a8;
+    height: 100%;
+    width: 50%;
+    overflow: hidden;
+  }
+  .split-circle::before {
+    border-top-left-radius: 70px;
+    border-bottom-left-radius: 70px;
+    animation: shift-left 3s linear infinite;
+  }
+  .split-circle::after {
+    border-top-right-radius: 70px;
+    border-bottom-right-radius: 70px;
+    animation: shift-right 3s linear infinite;
+  }
+  
+  .beat-circle {
+    height: 35px;
+    width: 35px;
+    background-color: #88a0a8;
+    border-radius: 50%;
+    animation: beat 2s linear infinite;
+  }  
+
+/**********************************************
+/*                CANVAS & SVG                *
+/*********************************************/
+
+.demo-canvas {
+    border: 1px dashed #e8857c;
+    background-color: #ffffff;
+}

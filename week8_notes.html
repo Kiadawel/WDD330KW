@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+    <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Week 8 | WDD330 | Kimi Weldon</title>
+            <meta name="description" content="Assignments, samples and course projects for Kimi Weldon, for WDD330 at BYU-Idaho.">
+            <meta name="author" content="Kimi Weldon">
+            <link rel="stylesheet" href="css/main-style.css">
+    </head>
+    
+    <body>
+        <div class="page_wrap">
+            <header>
+                <h1>Week 8</h1>
+                <p>Notes and questions for Week 8. <br />
+                    <a href="index.html">&#60; Back to Portfolio</a></p>
+            </header>
+            <main>
+                <h2>Questions</h2>
+                <section>
+                    <ul>
+                        <li>
+                                
+                        </li>
+                    </ul>
+                </section>
+                
+                <h2>Notes</h2>
+                <a id="hider" class="hider" onclick="showNotes()">SHOW &#62;</a>
+                <section id="notes" class="hideme">
+                    <h3>HTML5 & CSS3 for the Real World</h3>
+                    <h4>Chapter 8: CSS3 Transforms & Transitions</h4>
+                    <h5>Transforms</h5>
+                    <ul>
+                        <li>
+                            Transform property: <ul>
+                                <li>lets you translate, rotate, scale or skew objects on a page</li>
+                                <li>doesn't work on inline elements; use inline-block or just block to apply transforms</li>
+                                <li>can be stacked, but shouldn't be repeated (second will replace first) ex: transform: translateX(10px) scale(.5);</li>
+                            </ul>
+                        </li>
+                        <li>Translation:
+                            <ul>
+                                <li>lets you move elements left, right, up, down, similar to position: relative -- using x/y axes.</li>
+                                <li>does not impact the flow of the document</li>
+                                <li>moves elements relative to their current position</li>
+                                <li>transform: translate(x, y);</li>
+                                <li>alternate option: transform: translateX(10px) or translateY(10px)</li>
+                            </ul>
+                        </li>
+                        <li>Scale:
+                            <ul>
+                                <li>transform: scale(x,y) -- if only x or y is provided, it will apply to both height and width. ex: scale(2) would double the size proportionally.</li>
+                                <li>can also use scaleX(x) or scaleY(y) alone</li>
+                                <li>does not impact document flow; embiggened stuff will overlap things around it.</li>
+                            </ul>
+                        </li>
+                        <li>Rotate:
+                            <ul>
+                                <li>rotates an item with a specified angle value</li>
+                                <li>rotates items around the center point unless specified with transform-origin</li>
+                                <li>positive degrees move clockwise, negative move counterclockwise</li>
+                                <li>transform: rotate(10deg)</li>
+                            </ul>
+                        </li>
+                        <li>Skew:
+                            <ul>
+                                <li>specifies a skew along x/y axes by degrees</li>
+                                <li>transform: skew(Xdeg, Ydeg);</li>
+                            </ul>
+                        </li>
+                        <li>Transform-origin property defaults to center; change for more dramatic results</li>
+                        <li>Order matters! Transforms are applied in the order given; if you rotate first, the item will move on the rotated axis.</li>
+                    </ul>
+                    <h5>Transitions</h5>
+                    <ul>
+                        <li>
+                            Transitions apply when a class is changed; saves JavaScript some work.
+                            <ul>
+                                <li>Declare the original state of the element</li>
+                                <li>Declare the altered state, ex. :hover</li>
+                                <li>Include transition functions in the default/originating style with transition properties</li>
+                            </ul>
+                        </li>
+                        <li>transition-property: specifies which property of an element should show the transition happening; defaults to all</li>
+                        <li>transition-duration: specifies how long animation should take, in s or ms. (200ms is optimum for basic transitions like hover effects)</li>
+                        <li>transition-timing-function: controls the pace of the transition, ex: ease, linear, ease-in, ease-out, ease-in-out. Can also customize with cubic-bezier function. This is complex and beyond my desire to learn.</li>
+                        <li>steps function -- a transition-timing function
+                            <ul>
+                                <li>define the number of steps and the direction of either start or end (where the first step happens)</li>
+                                <li>steps(5, start) jumps through the animation equally over 5 steps starting with 0% and ending at 80%, whereas steps(5, end) would start with 20% and end with 100%.</li>
+                            </ul>
+                        </li>
+                        <li>transition-delay: how long to wait before starting the animation, in s or ms.</li>
+                        <li>transition shorthand: declare property, duration, timing-function, delay, on one line.</li>
+                        <li>Transitioning more than one thing at the same time in different ways: declare with commas and specify in order. Ex:
+                            <ul>
+                                <li>transition-property: transform, color (specifies two properties)</li>
+                                <li>transition-duration: .2s, .1s (color will change faster than transform)</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h5>Animations</h5>
+                    <ul>
+                        <li>Allows you to define keyframes -- snapshots with the starting or ending point of the transition</li>
+                        <li>Good alternative to JavaScript animation; better to use for simple-state changes especially on mobile</li>
+                        <li>Keyframes:
+                            <ul>
+                                <li>Defined with @keyframes, then a name of your choosing (like a function declaration)<li>
+                                <li>@keyframes myAnimation { keyframes here }</li>
+                                <li>keyterms: from and to (0% and 100%)</li>
+                                <li>Each keyframe includes properties to be animated.</li>
+                            </ul>
+                        </li>
+                        <li>animation-name: myAnimation; within an element's styles declares the animation (calls the keyframes function) </li>
+                        <li>animation-duration (not strictly required but best practice)</li>
+                        <li>animation-timing-function with same parameters as transition-timing-function above.</li>
+                        <li>animation-direction: usually goes from 0-100% (normal), but can be specified to go backward with reverse or alternate forwards/backwards with alternate or alternate-reverse.</li>
+                        <li>animation-delay: specifies how long to wait before starting the animation.</li>
+                        <li>animation-fill-mode: specifies what happens before and after the animation (none by default).
+                            <ul>
+                                <li>forwards -- holds the last keyframe after animation ends</li>
+                                <li>backwards -- loads the element with the first animated state and reverts to default after the animation ends</li>
+                                <li>both -- will start out with the first animated state and hold onto the last animated state after it ends</li>
+                            </ul>
+                        </li>
+                        <li>animation-play-state: accepts running or paused; can be controlled with CSS or JS.</li>
+                        <li>animation shorthand: name, duration, timing function, delay, iteration-count, direction, fill-mode, and play-state, declared in any order on one line.</li>
+                        <li>"Just because you can doesn't mean you should." -- use transforms/animations with a light touch. Use only to enhance the user experience where it makes sense, and skip the extra flash.</li>
+                    </ul>
+
+                    <h4>Chapter 12: Canvas, SVG, and Drag and Drop</h4>
+                    <ul>
+                        <li>
+                            Canvas element allows user to draw on the page. It was developed by Apple, so familiarity with Canvas helps with some iOS developer skills (Quartz 2D).
+                        </li>
+                        <li>Canvas tag -- text inside only shown if Canvas is not supported by the browser. Must specify width and height in HTML tag; CSS will not resize the Canvas coordinate system.</li>
+                        <li>(Most of this chapter had hands-on examples I used in lieu of note taking.)</li>
+                    </ul>
+                </section>
+            </main>
+
+            <footer>
+                &copy; 2020 Kimberly Weldon. All rights reserved.
+            </footer>
+        
+            <script src="js/pagefunctions.js"></script>
+            <script src="js/week8.js"></script>
+        </div>
+    </body>
+</html>
