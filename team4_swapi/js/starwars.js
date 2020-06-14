@@ -78,14 +78,14 @@ export default class StarWarsList {
         this.parentElement.innerHTML = '';
 
         const li = document.createElement('li');
+        li.classList.add('full-detail');
         li.innerHTML = `
             <h2>${item.name}</h2>
             <ul>
-                <li>Height: ${item.height}</li>
+                <li>Height: ${item.height} cm</li>
                 <li>Hair Color: ${item.hair_color}</li>
                 <li>Eye Color: ${item.eye_color}</li>
                 <li>Gender: ${item.gender}</li>
-                <li>Species: ${item.species}</li>
             </ul>`;
 
         this.parentElement.appendChild(li);
@@ -100,7 +100,7 @@ export default class StarWarsList {
         const listArr = Array.from(document.getElementById('pages').children);
         console.log(listArr);
         listArr.forEach(item => {
-            item.addEventListener('click', event => {
+            item.onclick = (event) => {
                 if(event.currentTarget.id == 'first'){
                     console.log('heading to First page');
                     if(thisPage != 1){
@@ -128,15 +128,16 @@ export default class StarWarsList {
                         this.init();
                     }
                 }
-            })
+            }
         })
         document.getElementById('pages').classList.remove('hide');
     }
     buildBackButton(){
         const backButton = document.createElement("button");
         backButton.textContent = "Return to List";
-        backButton.addEventListener('click', () => {this.showFullList();});
-        this.parentElement.before(backButton);
+        backButton.onclick = () => {this.showFullList();};
+        backButton.classList.add('back-button');
+        this.parentElement.after(backButton);
         return backButton;
     }
 }
@@ -147,8 +148,7 @@ function newPerson(person){
         height: person.height,
         hair_color: person.hair_color,
         eye_color: person.eye_color,
-        gender: person.gender,
-        species: person.species
+        gender: person.gender
     }
     return newPerson;
 }

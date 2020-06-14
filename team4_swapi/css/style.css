@@ -5,6 +5,7 @@ body {
     background-color: black;
     color: white;
     font-family: 'Roboto', sans-serif;
+    text-align: center;
 }
 h1, h2, h3, h4, h5 {
     color: yellow;
@@ -19,7 +20,7 @@ main {
     margin: 0 auto;
 }
 
-button, input[type=button]{
+button {
     background-color: transparent;
     color: yellow;
     text-transform: uppercase;
@@ -28,19 +29,31 @@ button, input[type=button]{
     border-radius: 3px;
     font-family: 'Hepta Slab', serif;
     cursor: pointer;
+    text-align: center;
+    padding: 1em;
 }
+
+.backbutton {
+    text-align: center;
+}
+
 ul {
     list-style-type: none;
     padding: 0;
     margin: 1em;
 }
-li {
+.mainlist li {
     padding: 0 .5em;
     border-bottom: 1px solid white;
-    line-height: 1.5em;
+    line-height: 2em;
+    text-align: left;
+}
+.full-detail li{
+    border:none;
 }
 .pagination {
     text-align: center;
+    width: 100%;
 }
 .hide {
     display: none;
