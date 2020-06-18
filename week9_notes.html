@@ -24,7 +24,7 @@
                 <section>
                     <ul>
                         <li>
-                            
+                            How do you know when it's the right time to use a Worker?
                         </li>
                     </ul>
                 </section>
@@ -95,7 +95,63 @@
                      </ul>
                     <h4>Chapter 14: HTML5 APIs</h4>
                     <ul>
-                        <li></li>
+                        <li>HTML 5.1 is the latest incarnation of HTML, and includes several APIs that JS can access.</li>
+                        <li>data- attributes embed custom data into a webpage that can be used by JS for UX enhancement. These attributes:
+                            <ul>
+                                <li>must start with data-</li>
+                                <li>can only contain lowercase letters, numbers, hyphens, dots, colons, underscores</li>
+                                <li>include an optional string value</li>
+                                <li>can be accessed with "dataset" ex: access data-powers with superman.dataset.powers</li>
+                                <li>old browsers can get this with getAttribute, ex: superman.getAttribute('data-powers');</li>
+                                <li>allow you to add data directly into the HTML markup for a richer US</li>
+                                <li>should only be used when no other HTML elements apply (ex: data-class is stupid. Just use class attribute)</li>
+                            </ul>
+                        </li>
+                        <li>Web Storage API: allows key-value pairs to be stored on the user's device, like cookies but different:
+                            <ul>
+                                <li>Not shared with the server on every request</li>
+                                <li>Available in multiple browser windows if domain is the same</li>
+                                <li>storage capacity is much larger (usually up to 5GB per domain -- cookie limit is 4KB)</li>
+                                <li>Does not automatically expire like cookies (so cookies might be better for some things)</li>
+                                <li>This is where localStorage comes from! Also sessionStorage, which is similar but only for the current session.</li>
+                            </ul>
+                        </li>
+                        <li>localStorage/sessionStorage methods:
+                            <ul>
+                                <li>setItem('name','value') - stores the information</li>
+                                <li>localStorage.name = 'value' - stores the information (by assignment)</li>
+                                <li>getItem('name') - returns the value stored with that name</li>
+                                <li>removeItem('name') - removes the item</li>
+                                <li>delete localStorage.name - deletes the item</li>
+                                <li>localStorage.clear(); - completely removes everything in LS</li>
+                                <li>LS methods fire a storage event -- this has properties of its own: key, newValue, oldValue, and storageArea (the latter tells us where the changed item was saved)</li>
+                            </ul>
+                        </li>
+                        <li>LocalStorage only accepts strings; use JSON.stringify() to save objects as strings</li>
+                        <li>Geolocation API: lets you access the geographic coordinates of the user's device (with user's permission). If available, uses "navigator" object and methods:
+                            <ul>
+                                <li>navigator.geolocation.getCurrentPosition(callback); - passes a "position" object with coords as latitude and longitude. ex: position.coords.latitude, position.coords.longitude</li>
+                                <li>position.speed - ground speed of device in meters per second</li>
+                                <li>position.altitude - estimate of device's altitude in meters (above center of Earth)</li>
+                                <li>position.heading - direction the device is moving in</li>
+                                <li>position.timestamp - time that position info was recorded</li>
+                                <li>position.accuracy - returns accuracy of the coordinates in meters (lower = more accurate)</li>
+                                <li>navigator.geolocation.watchPosition(callback) calls the callback function every time the device's position updates (stop this happening with .clearWatch(id).</li>
+                            </ul>
+                        </li>
+                        <li>Web Worker API: performs computationally intensive tasks in the background (helps websites run more smoothly)</li>
+                        <li>Websockets: new protocol for internet communication; allows real-time, two way communication</li>
+                        <li>Notification API: allows you to display notifications on the user's system
+                            <ul>
+                                <li>Get permission first. if(window.Notification){ Notification.requestPermission();}</li>
+                                <li>.then((permission => if(Notification.permission === 'granted') { new Notification('string');</li>
+                                <li>Notification object includes body and icon you can specify as strings. Ex: const notification = new Notification('JavaScript:Novice to Ninja',{body: 'The new book from Sitepoint', icon: 'sitepointlogo.png'});</li>
+                                <li>Close a notification with notification,close();</li>
+                            </ul>
+                        </li>
+                        <li>audio and video elements: embeds audio and video in a webpage; Media API helps control these via JS</li>
+                        <li>canvas element: dynamically draws geometric shapes, text, and images in real time with JS</li>
+                        <li>shim/polyfill: a piece of code that adds support of missing features to older browsers.</li>
                     </ul>
                 </section>
 
@@ -104,6 +160,7 @@
                     <ul>
                         <li><a href="https://github.com/js-cookie/js-cookie" target="_blank">jsCookie</a></li>
                         <li><a href="https://github.com/ScottHamper/Cookies" target="_blank">Cookies.js</a></li>
+                        <li><a href="https://www.sitepoint.com/how-why-use-html5-custom-data-attributes/" target="_blank">How You Can Use HTML5 Custom Data Attributes and Why</a></li>
                     </ul>
                 </section>
             </main>
