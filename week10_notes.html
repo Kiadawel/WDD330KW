@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+    <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Week 10 | WDD330 | Kimi Weldon</title>
+            <meta name="description" content="Assignments, samples and course projects for Kimi Weldon, for WDD330 at BYU-Idaho.">
+            <meta name="author" content="Kimi Weldon">
+            <link rel="stylesheet" href="css/main-style.css">
+    </head>
+    
+    <body>
+        <div class="page_wrap">
+            <header>
+                <h1>Week 10</h1>
+                <p>Notes and questions for Week 10. <br />
+                    <a href="team4_quakes/index.html">Team Activity</a><br />
+                    <a href="index.html">&#60; Back to Portfolio</a></p>
+            </header>
+            <main>
+                <h2>Questions</h2>
+                <section>
+                    <ul>
+                        <li>
+                            No questions this week.
+                        </li>
+                    </ul>
+                </section>
+                
+                <h2>Notes</h2>
+                <a id="hider" class="hider" onclick="showNotes()">SHOW &#62;</a>
+                <section id="notes" class="hideme">
+                    <h3>MDN: Form Validation</h3>
+                    <p><a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation" target="_blank">source</a></p>
+                    <ul>
+                        <li>Client-side verification: initial check done by the HTML/JS before submitting a form - check for things like proper formatting, all required fields, etc. NOT a great security measure</li>
+                        <li>Form validation: why?
+                            <ul>
+                                <li>Get the right data in the right format</li>
+                                <li>Protect users' data</li>
+                                <li>Protect ourselves (the server/app/data)</li>
+                            </ul>
+                        </li>
+                        <li>Built-in form validation with HTML5:
+                            <ul>
+                                <li>required attribute</li>
+                                <li>minlength/maxlength (strings)</li>
+                                <li>min/max (numerical)</li>
+                                <li>type</li>
+                                <li>pattern</li>
+                            </ul>
+                        </li>
+                        <li>CSS pseudoclasses :valid and :invalid to verify by UI and allow/prevent form submission</li>
+                        <li>Good UX + Accessibility guidelines: always indicate if a field is required, and only require info you actually need.</li>
+                        <li>Regex = super useful, super complicated. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions" target="_blank">More Regex Info</a></li>
+                        <li>Use minlength/maxlength, but provide character count feedback (such as a visible character-count at the bottom of a field)</li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation#Validation-related_attributes" target="_blank">More validation-related attributes</a></li>
+                        <li>JavaScript Constraint Validation (<a href="https://developer.mozilla.org/en-US/docs/Web/API/Constraint_validation" target="_blank">Constraint validation API</a>)
+                            <ul>
+                                <li>set of methods/properties for various DOM elements (button, fieldset, input, output, select, textarea)</li>
+                                <li>properties: allows validation with validationMessage, validity (various states), willValidate(boolean)</li>
+                                <li>methods: checkValidity() (boolean), setCustomValidity() (custom error message)</li>
+                            </ul>
+                        </li>
+                        <li>Custom error messages -- can't change their look/feel with CSS, might display in a different language (browser locale dependent)</li>
+                        <li>Use "novalidate" on the form to turn off browser-automated validation so the script can take over -- constraint API + pseudo-classes still work.
+                            <ul>
+                                <li>(use aria-live on error message span text to read the error message aloud when it shows up)</li>
+                                <li>this also allows us to style the error messages with CSS</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3>MDN: Using Fetch</h3>
+                    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank">source</a></p>
+                    <ul>
+                        <li>This is an article I have reviewed many times over the past few weeks; saving the link to continue using as a reference.</li>
+                    </ul>
+                </section>
+            </main>
+
+            <footer>
+                &copy; 2020 Kimberly Weldon. All rights reserved.
+            </footer>
+        
+            <script src="js/pagefunctions.js"></script>
+        </div>
+    </body>
+</html>
