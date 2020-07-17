@@ -32,7 +32,16 @@
 
                 <section>
                     <h3>CHALLENGE 2: PokeBreeder</h3>
-                    <p>This solo project took roughly 4 weeks and well over 30 hours. It is a simple web app that allows you to choose favorite Pokemon, find the Pokemon they can breed with, and display what baby would result from a given pairing. More info when it's completed.</p>
+                    <p>This solo project took roughly 4 weeks and well over 30 hours. It is a simple web app that allows you to choose favorite Pokemon, find the Pokemon they can breed with, and display what baby would result from a given pairing. Things I learned/things I like:</p>
+                    <ul>
+                        <li>I was originally making a bajillion API calls whenever I loaded a list of Pokemon in a particular Type group, if I hadn't saved it already. Needless to say, this took forever and probably would have gotten me in trouble with PokeAPI in the long run. I ended up using that set of calls/functions to create a JSON library of Pokemon entries with just the information I needed. Simple, but felt like a breakthrough!</li>
+                        <li>I'm still getting used to how Promises are handled, but I'm getting more efficient at using async/await effectively.</li>
+                        <li>I finally learned how to add event listeners that accept both touch and mouse click inputs. I think my solution may be clunky (rather like using a sledgehammer for a plastic Whack-a-Mole game) but it WORKS. :)</li>
+                        <li>Because my knowledge of Pokemon games is *ahem* extensive, I was able to make exceptions for weird genders or breeding scenarios, such as Ditto not sharing an egg group with anyone/not being breedable with itself and yet showing up in everyone else's options. More exceptions: pokemon that cannot breed (such as Baby pokemon and legendaries), Nidoran male/female, etc. To the best of my knowledge, every breeding scenario should come up with the correct Baby result(s).</li>
+                        <li>I utilized API, "local" JSON and LocalStorage for the app; API to pull information, LocalStorage to save a list of Pokemon that the user would like to try out in different scenarios.</li>
+                        <li>I think it came out really cute, with dynamically-generated Type/gender colors and images. I paid a lot of attention to little style details (and exercised my SCSS skills in the process). If I were to spend more time sprucing it up, I would try to make the layout more responsive than it is now, with the content visible in different areas when the screen is wider.</li>
+                    </ul>
+                    <p>Overall, I'm really pleased with what I was able to build, and I hope you like it! :)</p>
 
                     <p><a href="pokebreeder/index.html">PokeBreeder App</a></p>
                 </section>
